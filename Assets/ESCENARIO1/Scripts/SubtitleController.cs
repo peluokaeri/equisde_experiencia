@@ -5,158 +5,198 @@ using UnityEngine.UI;
 
 public class SubtitleController : MonoBehaviour
 {
-    [Header("Referencias")]
-    [SerializeField] private TMP_Text subtitleText;
-    [SerializeField] private RectTransform subtitlePanel;
-    [SerializeField] private Image clickHintImage;
+    [Header("UI")]
+    public TMP_Text subtitleText;
+    public RectTransform subtitlePanel;
+    public Image clickHintImage;
 
-    [Header("Textos")]
-    [TextArea(3, 5)]
-    [SerializeField] private string[] subtitles;
+    [Header("Typing")]
+    public float typingSpeed = 0.03f;
+    public float horizontalPadding = 40f;
+    public float verticalPadding = 20f;
 
-    [Header("Escritura")]
-    [SerializeField] private float typingSpeed = 0.04f;
-    [SerializeField] private Vector2 panelPadding = new Vector2(40, 25);
+    [Header("Hint")]
+    public float idleTimeToShowHint = 2f;
+    public float hintFadeSpeed = 2f;
 
-    [Header("Click Hint")]
-    [SerializeField] private float idleTimeToHint = 5f;
-    [SerializeField] private float hintBlinkSpeed = 0.5f;
+    public bool IsDialogueActive => currentDialogue != null;
 
-    private int currentIndex = 0;
-    private bool isTyping = false;
-    private float idleTimer = 0f;
-
+    private DialogueData currentDialogue;
+    private int currentLineIndex;
     private Coroutine typingCoroutine;
-    private Coroutine blinkCoroutine;
+    private Coroutine hintCoroutine;
+    private float idleTimer;
 
-    void Start()
-    {
+    private float panelStartPosX;
 
-         RectTransform rt = subtitlePanel;
 
-    rt.anchorMin = new Vector2(0f, 0.5f);
-    rt.anchorMax = new Vector2(0f, 0.5f);
-    rt.pivot     = new Vector2(0f, 0.5f);
-    
-        clickHintImage.gameObject.SetActive(false);
-        ShowSubtitle();
-    }
+   void Start()
+{
+    subtitleText.text = "";
+
+    // 🔒 FORZAMOS ANCHORS Y PIVOT (CLAVE)
+    subtitlePanel.anchorMin = new Vector2(0f, 0.5f);
+    subtitlePanel.anchorMax = new Vector2(0f, 0.5f);
+    subtitlePanel.pivot = new Vector2(0f, 0.5f);
+
+    panelStartPosX = subtitlePanel.anchoredPosition.x;
+
+    subtitlePanel.gameObject.SetActive(false);
+    SetHintAlpha(0f);
+}
 
     void Update()
     {
-        HandleInput();
-        HandleIdleTimer();
-    }
+        if (currentDialogue == null)
+            return;
 
-    void HandleInput()
-    {
-        if (Input.GetMouseButtonDown(0))
+        idleTimer += Time.deltaTime;
+
+        if (idleTimer >= idleTimeToShowHint && hintCoroutine == null)
+            hintCoroutine = StartCoroutine(SmoothHint());
+
+        if (Input.GetMouseButtonDown(1)) // Click derecho
         {
-            idleTimer = 0f;
-            StopClickHint();
+            ResetIdle();
+            NextLine();
+        }
 
-            if (isTyping)
-            {
-                CompleteText();
-            }
-            else
-            {
-                NextSubtitle();
-            }
+        if (Input.GetMouseButtonDown(0)) // Click izquierdo
+        {
+            ResetIdle();
+            PreviousLine();
         }
     }
 
-    void HandleIdleTimer()
+    // 🔹 Llamado desde triggers / eventos
+    public void PlayDialogue(DialogueData dialogue)
     {
-        if (!isTyping)
-        {
-            idleTimer += Time.deltaTime;
+        if (dialogue == null) return;
 
-            if (idleTimer >= idleTimeToHint && blinkCoroutine == null)
-            {
-                blinkCoroutine = StartCoroutine(BlinkHint());
-            }
-        }
+        currentDialogue = dialogue;
+        currentLineIndex = 0;
+
+        subtitlePanel.gameObject.SetActive(true);
+        ResetIdle();
+        ShowLine();
     }
 
-    void ShowSubtitle()
+    void NextLine()
     {
-        if (currentIndex >= subtitles.Length) return;
+        if (currentLineIndex >= currentDialogue.lines.Length - 1)
+        {
+            ClearDialogue();
+            return;
+        }
+
+        currentLineIndex++;
+        ShowLine();
+    }
+
+    void PreviousLine()
+    {
+        if (currentLineIndex <= 0)
+            return;
+
+        currentLineIndex--;
+        ShowLine();
+    }
+
+    void ShowLine()
+    {
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
 
         subtitleText.text = "";
-        typingCoroutine = StartCoroutine(TypeText(subtitles[currentIndex]));
+        typingCoroutine = StartCoroutine(TypeText(currentDialogue.lines[currentLineIndex]));
     }
 
-    IEnumerator TypeText(string text)
+    IEnumerator TypeText(string line)
     {
-        isTyping = true;
-
-        foreach (char c in text)
+        foreach (char c in line)
         {
             subtitleText.text += c;
-            AdjustPanelSize();
+            UpdatePanelSize();
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        isTyping = false;
-        AdjustPanelSize();
+        UpdatePanelSize();
     }
 
-    void CompleteText()
-    {
-        StopCoroutine(typingCoroutine);
-        subtitleText.text = subtitles[currentIndex];
-        isTyping = false;
-        AdjustPanelSize();
-    }
-
-    void NextSubtitle()
-    {
-        currentIndex++;
-        idleTimer = 0f;
-
-        if (currentIndex < subtitles.Length)
-        {
-            ShowSubtitle();
-        }
-        else
-        {
-            subtitleText.text = "";
-            subtitlePanel.gameObject.SetActive(false);
-        }
-    }
-
-void AdjustPanelSize()
+    void UpdatePanelSize()
 {
     subtitleText.ForceMeshUpdate();
+    Vector2 size = subtitleText.GetRenderedValues(false);
 
-    float width = subtitleText.preferredWidth + panelPadding.x;
-    float height = subtitleText.preferredHeight + panelPadding.y;
+    subtitlePanel.sizeDelta = new Vector2(
+        size.x + horizontalPadding,
+        size.y + verticalPadding
+    );
 
-    subtitlePanel.sizeDelta = new Vector2(width, height);
+    // 🔒 FIJA LA POSICIÓN → NUNCA SE RECENTRA
+    subtitlePanel.anchoredPosition = new Vector2(
+        panelStartPosX,
+        subtitlePanel.anchoredPosition.y
+    );
 }
 
 
-    IEnumerator BlinkHint()
+    void ResetIdle()
     {
-        clickHintImage.gameObject.SetActive(true);
+        idleTimer = 0f;
+
+        if (hintCoroutine != null)
+        {
+            StopCoroutine(hintCoroutine);
+            hintCoroutine = null;
+        }
+
+        SetHintAlpha(0f);
+    }
+
+    IEnumerator SmoothHint()
+    {
         Color c = clickHintImage.color;
 
         while (true)
         {
-            c.a = Mathf.PingPong(Time.time * (1f / hintBlinkSpeed), 1f);
-            clickHintImage.color = c;
-            yield return null;
+            // Fade in
+            while (c.a < 1f)
+            {
+                c.a += Time.deltaTime * hintFadeSpeed;
+                clickHintImage.color = c;
+                yield return null;
+            }
+
+            // Fade out
+            while (c.a > 0f)
+            {
+                c.a -= Time.deltaTime * hintFadeSpeed;
+                clickHintImage.color = c;
+                yield return null;
+            }
         }
     }
 
-    void StopClickHint()
+    void SetHintAlpha(float alpha)
     {
-        if (blinkCoroutine != null)
-        {
-            StopCoroutine(blinkCoroutine);
-            blinkCoroutine = null;
-            clickHintImage.gameObject.SetActive(false);
-        }
+        Color c = clickHintImage.color;
+        c.a = alpha;
+        clickHintImage.color = c;
+    }
+
+    void ClearDialogue()
+    {
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
+
+        if (hintCoroutine != null)
+            StopCoroutine(hintCoroutine);
+
+        subtitleText.text = "";
+        SetHintAlpha(0f);
+        currentDialogue = null;
+
+        subtitlePanel.gameObject.SetActive(false);
     }
 }

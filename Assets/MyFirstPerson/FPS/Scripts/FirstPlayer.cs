@@ -11,6 +11,8 @@ public class FirstPlayer : MonoBehaviour
 
     Rigidbody _rgbd;
 
+    [HideInInspector] public bool canMove = true;
+
     FirstPlayerCamera _myCam;
 
     float _mouseX;
@@ -49,13 +51,16 @@ public class FirstPlayer : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+   private void FixedUpdate()
+{
+    if (!canMove)
+        return;
+
+    if (_inputVertical != 0 || _inputHorizontal != 0)
     {
-        if (_inputVertical != 0 || _inputHorizontal != 0)
-        {
-            Movement(_inputHorizontal, _inputVertical);
-        }
+        Movement(_inputHorizontal, _inputVertical);
     }
+}
 
     public void Rotation(float rotX, float rotY)
     {
