@@ -12,17 +12,26 @@ public class DialogueTrigger : MonoBehaviour
 
     [Header("Confirmar Menu")]
     public GameObject confirmarMenu;
-    public Graphic confirmText;     // TMP_Text o Text
+    public Graphic confirmText;
     public Button confirmButton;
 
-    [Header("Timings")]
+    [Header("Confirm Timings")]
     public float textFadeTime = 1.5f;
     public float buttonFadeTime = 1f;
     public float buttonBlinkSpeed = 0.25f;
 
+    [Header("Luz")]
+    public GameObject luz;
+    public float luzFadeTime = 2f;
+    public float maxEmission = 3f;
+
     private bool triggered = false;
     private Coroutine blinkRoutine;
     private Graphic buttonGraphic;
+
+    private Renderer luzRenderer;
+    private Material luzMaterial;
+    private Animator luzAnimator;
 
     private void Awake()
     {
@@ -32,6 +41,30 @@ public class DialogueTrigger : MonoBehaviour
 
         SetAlpha(confirmText, 0f);
         SetAlpha(buttonGraphic, 0f);
+
+        // Setup luz
+        if (luz != null)
+        {
+            luzRenderer = luz.GetComponent<Renderer>();
+            luzAnimator = luz.GetComponent<Animator>();
+
+            if (luzRenderer != null)
+            {
+                // Instanciamos material para no afectar otros objetos
+                luzMaterial = luzRenderer.material;
+
+                Color c = luzMaterial.color;
+                c.a = 0f;
+                luzMaterial.color = c;
+
+                luzMaterial.SetColor("_EmissionColor", Color.black);
+            }
+
+            if (luzAnimator != null)
+                luzAnimator.enabled = false;
+
+            luz.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,26 +85,21 @@ public class DialogueTrigger : MonoBehaviour
 
     IEnumerator WaitForDialogueEnd()
     {
-        // ⏳ Esperar a que termine el diálogo
         yield return new WaitUntil(() => !subtitleController.IsDialogueActive);
 
-        // 🖱️ Desbloquear mouse
+        // Mouse libre
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // 🚫 Bloquear rotación deshabilitando el player
+        // Bloquear rotación
         if (player != null)
             player.enabled = false;
 
         confirmarMenu.SetActive(true);
 
-        // Fade texto
         yield return StartCoroutine(FadeGraphic(confirmText, 0f, 1f, textFadeTime));
-
-        // Fade botón
         yield return StartCoroutine(FadeGraphic(buttonGraphic, 0f, 1f, buttonFadeTime));
 
-        // Parpadeo lento
         blinkRoutine = StartCoroutine(BlinkButton());
     }
 
@@ -91,31 +119,26 @@ public class DialogueTrigger : MonoBehaviour
     }
 
     IEnumerator BlinkButton()
-{
-    while (true)
     {
-        float t = 0f;
-
-        // Fade OUT fuerte
-        while (t < 1f)
+        while (true)
         {
-            t += Time.deltaTime * buttonBlinkSpeed;
-            SetAlpha(buttonGraphic, Mathf.Lerp(1f, 0.25f, t));
-            yield return null;
-        }
+            float t = 0f;
+            while (t < 1f)
+            {
+                t += Time.deltaTime * buttonBlinkSpeed;
+                SetAlpha(buttonGraphic, Mathf.Lerp(1f, 0.25f, t));
+                yield return null;
+            }
 
-        t = 0f;
-
-        // Fade IN fuerte
-        while (t < 1f)
-        {
-            t += Time.deltaTime * buttonBlinkSpeed;
-            SetAlpha(buttonGraphic, Mathf.Lerp(0.25f, 1f, t));
-            yield return null;
+            t = 0f;
+            while (t < 1f)
+            {
+                t += Time.deltaTime * buttonBlinkSpeed;
+                SetAlpha(buttonGraphic, Mathf.Lerp(0.25f, 1f, t));
+                yield return null;
+            }
         }
     }
-}
-
 
     void SetAlpha(Graphic g, float alpha)
     {
@@ -132,15 +155,46 @@ public class DialogueTrigger : MonoBehaviour
 
         confirmarMenu.SetActive(false);
 
-        // 🔓 Rehabilitar player
+        // Volver a gameplay
         if (player != null)
         {
             player.enabled = true;
             player.canMove = true;
         }
 
-        // 🖱️ Volver a bloquear mouse
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        // 🌕 Activar aparición de luz
+        if (luz != null)
+            StartCoroutine(FadeInLuz());
+    }
+
+    IEnumerator FadeInLuz()
+    {
+        luz.SetActive(true);
+
+        float t = 0f;
+
+        while (t < luzFadeTime)
+        {
+            t += Time.deltaTime;
+            float k = t / luzFadeTime;
+
+            // Alpha
+            Color c = luzMaterial.color;
+            c.a = Mathf.Lerp(0f, 1f, k);
+            luzMaterial.color = c;
+
+            // Emission
+            Color emission = Color.white * Mathf.Lerp(0f, maxEmission, k);
+            luzMaterial.SetColor("_EmissionColor", emission);
+
+            yield return null;
+        }
+
+        // 🔥 Reproducir animación
+        if (luzAnimator != null)
+            luzAnimator.enabled = true;
     }
 }
