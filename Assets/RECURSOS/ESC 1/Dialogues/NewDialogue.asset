@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ba99e53b83e694b92d25281979cd08, type: 3}
+  m_Name: NewDialogue
+  m_EditorClassIdentifier: 
+  lines:
+  - Hola, soy vos. No necesito introducciones.
+  - "Por m\xE1s que ya est\xE9s dentro, aun no diste el primer paso."
+  - "\xBFAlguna vez tuviste ganas de romper un monitor?"
+  - "Es tu momento, agarr\xE1 un objeto punzante o tu propia mano"
+  - "y romp\xE9 esa pantalla para descubrir lo que hay dentro."
+  - "No te emociones, lo utilizaremos m\xE1s tarde."
