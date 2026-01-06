@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ba99e53b83e694b92d25281979cd08, type: 3}
+  m_Name: IntroEsc2
+  m_EditorClassIdentifier: 
+  lines:
+  - La primer parada. Volvamos un momento a la infancia.
+  - "Esa ni\xF1ez que se viv\xEDa jugando en un patio,"
+  - "donde cada sonido ten\xEDa un misterio propio,"
+  - "un peque\xF1o miedo y, con el tiempo,"
+  - "una ternura que todav\xEDa hoy record\xE1s."
+  - "No te quedes ah\xED quieto"
+  - "\xA1Descubr\xED lo que cada objeto tiene para ofrecerte!"
