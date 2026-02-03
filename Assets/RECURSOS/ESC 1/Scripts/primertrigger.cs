@@ -159,7 +159,7 @@ public class DialogueTrigger : MonoBehaviour
         if (player != null)
         {
             player.enabled = true;
-            player.canMove = true;
+        
         }
 
         Cursor.lockState = CursorLockMode.Locked;
