@@ -1247,7 +1247,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1295,12 +1295,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56846120}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 862.46, y: 4.16, z: -162.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0037540614, y: -0.022919286, z: -0.027191259}
+  m_LocalScale: {x: 0.12948745, y: 0.12948745, z: 0.12948745}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1216150737}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &58916328
 GameObject:
@@ -6810,7 +6810,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -7554,7 +7554,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -8290,7 +8290,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -18477,7 +18477,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -18879,7 +18879,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -24961,7 +24961,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c94128cf76f8a924184c0d91f0be32c4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 56846122}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c94128cf76f8a924184c0d91f0be32c4,
         type: 3}
@@ -25056,7 +25060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitleController: {fileID: 1984499166}
   ballDialogue: {fileID: 11400000, guid: 2e80a1e33d970ff438fdff78baf442fc, type: 2}
-  audioSource: {fileID: 56846121}
+  pelotaAudio: {fileID: 56846121}
   pushForce: 6
 --- !u!65 &1216150745
 BoxCollider:
@@ -38394,7 +38398,6 @@ SceneRoots:
   - {fileID: 409955755}
   - {fileID: 543450653396004003}
   - {fileID: 874113287}
-  - {fileID: 56846122}
   - {fileID: 410577099}
   - {fileID: 442059351}
   - {fileID: 378647998}

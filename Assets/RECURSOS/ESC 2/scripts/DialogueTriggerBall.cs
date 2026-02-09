@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueTriggerBall : MonoBehaviour
@@ -9,33 +7,42 @@ public class DialogueTriggerBall : MonoBehaviour
     public DialogueData ballDialogue;
 
     [Header("Audio")]
-    public AudioSource audioSource;
+    public AudioSource pelotaAudio;
 
-    [Header("Push Settings")]
-    public float pushForce = 3f; // Fuerza leve del empujón
+    [Header("Force")]
+    public float pushForce = 3f;
 
     private bool triggered = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (!other.CompareTag("Player")) return;
+        // Asegurarnos que el audio no suene solo
+        if (pelotaAudio != null)
+            pelotaAudio.playOnAwake = false;
+    }
 
-        // 🔊 Sonido SIEMPRE
-        if (audioSource != null)
-            audioSource.Play();
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!collision.gameObject.CompareTag("Player"))
+            return;
 
-        // 🚀 Empujar al jugador en la dirección que mira
-        Rigidbody playerRb = other.GetComponent<Rigidbody>();
-        if (playerRb != null)
+        // 🔊 Sonido DESDE la pelota (la sigue siempre)
+        if (pelotaAudio != null)
+            pelotaAudio.Play();
+
+        // 🧍‍♂️ Empujón leve en dirección a donde mira el player
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            Vector3 pushDirection = other.transform.forward;
-            playerRb.AddForce(pushDirection * pushForce, ForceMode.Impulse);
+            Vector3 pushDir = collision.transform.forward;
+            rb.AddForce(pushDir * pushForce, ForceMode.Impulse);
         }
 
-        // 🗣 Diálogo SOLO una vez
-        if (triggered) return;
-
-        triggered = true;
-        subtitleController.PlayDialogue(ballDialogue);
+        // 🗣 Diálogo (solo la primera vez)
+        if (!triggered && !subtitleController.IsDialogueActive)
+        {
+            triggered = true;
+            subtitleController.PlayDialogue(ballDialogue);
+        }
     }
 }

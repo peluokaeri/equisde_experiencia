@@ -1,19 +1,18 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FinalDialogueChangeScene : MonoBehaviour
+public class FinalTrigger : MonoBehaviour
 {
-    [Header("Dialogue")]
+    [Header("References")]
     public SubtitleController subtitleController;
     public DialogueData finalDialogue;
 
     [Header("Scene")]
-    public string sceneToLoad = "Escenario2";
+    public string nextSceneName = "escenario2";
 
     private bool triggered = false;
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (triggered) return;
         if (!other.CompareTag("Player")) return;
@@ -23,18 +22,19 @@ public class FinalDialogueChangeScene : MonoBehaviour
         // ▶️ Reproducir diálogo final
         subtitleController.PlayDialogue(finalDialogue);
 
-        // ▶️ Esperar fin del diálogo
-        StartCoroutine(WaitForDialogueEnd());
+        // ⏳ Esperar a que termine
+        StartCoroutine(WaitForDialogueAndChangeScene());
     }
 
-    IEnumerator WaitForDialogueEnd()
+    private System.Collections.IEnumerator WaitForDialogueAndChangeScene()
     {
-        while (subtitleController.IsDialogueActive)
-        {
-            yield return null;
-        }
+        // Esperamos a que arranque
+        yield return new WaitUntil(() => subtitleController.IsDialogueActive);
 
-        // 🎬 Cambiar de escena
-        SceneManager.LoadScene(sceneToLoad);
+        // Esperamos a que termine
+        yield return new WaitUntil(() => !subtitleController.IsDialogueActive);
+
+        // 🔁 Cambiar de escena
+        SceneManager.LoadScene(nextSceneName);
     }
 }
