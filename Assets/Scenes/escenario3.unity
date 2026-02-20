@@ -2640,7 +2640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 288066943}
   m_Layer: 0
-  m_Name: PASILLO EXPERIENCIA VERSION NUEVA
+  m_Name: colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2656,7 +2656,7 @@ Transform:
   m_GameObject: {fileID: 288066942}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 12.65}
+  m_LocalPosition: {x: -0.18, y: 0, z: 12.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13971,7 +13971,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 724fff48d9b88b94dba7204b3ad3aedb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 724fff48d9b88b94dba7204b3ad3aedb,
         type: 3}
@@ -13981,7 +13981,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 724fff48d9b88b94dba7204b3ad3aedb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.65
+      value: 12.15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 724fff48d9b88b94dba7204b3ad3aedb,
         type: 3}
@@ -14021,7 +14021,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 724fff48d9b88b94dba7204b3ad3aedb,
         type: 3}
       propertyPath: m_Name
-      value: PASILLO EXPERIENCIA VERSION NUEVA
+      value: colliders
       objectReference: {fileID: 0}
     - target: {fileID: 8865962043883197576, guid: 724fff48d9b88b94dba7204b3ad3aedb,
         type: 3}
