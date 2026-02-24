@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Examen1Trigger : MonoBehaviour
@@ -8,20 +7,46 @@ public class Examen1Trigger : MonoBehaviour
     public SubtitleController subtitleController;
     public DialogueData examen1Dialogue;
 
+    [Header("After Dialogue")]
+    public GameObject LUZ1;
+
+    [Header("Sound")]
+    public AudioSource audioSource;
+
     private bool triggered = false;
+
+    private void Start()
+    {
+        // Luz apagada al inicio
+        if (LUZ1 != null)
+            LUZ1.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (triggered) return;
         if (!other.CompareTag("Player")) return;
 
-        // Evita que se active dos veces
         triggered = true;
 
-        // Evita superponer diálogos
         if (!subtitleController.IsDialogueActive)
         {
             subtitleController.PlayDialogue(examen1Dialogue);
+            StartCoroutine(WaitDialogueEnd());
         }
+    }
+
+    IEnumerator WaitDialogueEnd()
+    {
+        // Esperar a que termine el diálogo
+        yield return new WaitUntil(() => !subtitleController.IsDialogueActive);
+
+        // 💡 Activar luz
+        if (LUZ1 != null)
+            LUZ1.SetActive(true);
+
+        // 🔊 Reproducir sonido
+        if (audioSource != null)
+            audioSource.Play();
     }
 }
