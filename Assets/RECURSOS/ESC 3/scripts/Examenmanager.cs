@@ -5,42 +5,52 @@ using System.Collections;
 
 public class ExamenManager : MonoBehaviour
 {
-    [Header("Zonas del mapa")]
-    public DropZoneProvincia[] dropZones;     // Arrastra las 10 zonas aqui en el inspector
+    [Header("Mapa")]
+    public MapaColorDrop mapaColorDrop; // El RawImage mascara con el script
 
     [Header("UI del resultado")]
-    public TextMeshProUGUI textoNota;         // TMP directo sobre el mapa, desactivado al inicio
+    public TextMeshProUGUI textoNota;
 
     [Header("Boton para confirmar examen")]
-    public Button botonEntregar;             // Boton "Entregar examen"
-    public TextMeshProUGUI textoBotonEntregar; // Texto del boton (para cambiar a "Completa el mapa")
+    public Button botonEntregar;
+    public TextMeshProUGUI textoBotonEntregar;
 
-    // Estado interno
-    private int totalZonas;
+    [Header("Camaras")]
+    public Camera mainCamera;
+    public Camera camera2;
+    public GameObject examenCanvas;
+
+    [Header("Jugador")]
+    public GameObject player;
+
+    [Header("Examen en mesa (3D)")]
+    public GameObject examenMesa;
+    public TextMeshPro textoNotaMesa;
+
     private bool examenEntregado = false;
+    private FirstPlayer firstPlayer;
 
     void Start()
     {
-        totalZonas = dropZones.Length;
-
         if (botonEntregar != null)
             botonEntregar.onClick.AddListener(IntentarEntregar);
+
+        if (examenMesa != null)
+            examenMesa.SetActive(false);
+
+        if (player != null)
+            firstPlayer = player.GetComponent<FirstPlayer>();
     }
 
-    // Verifica si todas las zonas tienen tarjeta antes de permitir entregar
     public void IntentarEntregar()
     {
         if (examenEntregado) return;
 
-        int zonasCompletas = 0;
-        foreach (var zona in dropZones)
-        {
-            if (zona.EstaOcupada) zonasCompletas++;
-        }
+        int zonasCompletas = mapaColorDrop.GetZonasCompletas();
+        int totalZonas = mapaColorDrop.GetTotalZonas();
 
         if (zonasCompletas < totalZonas)
         {
-            // Feedback: todavia faltan provincias
             int faltantes = totalZonas - zonasCompletas;
             if (textoBotonEntregar != null)
                 textoBotonEntregar.text = $"Faltan {faltantes} provincia{(faltantes > 1 ? "s" : "")}";
@@ -49,7 +59,6 @@ public class ExamenManager : MonoBehaviour
             return;
         }
 
-        // Todas las zonas completas: calcula resultado
         EntregarExamen();
     }
 
@@ -64,30 +73,21 @@ public class ExamenManager : MonoBehaviour
     {
         examenEntregado = true;
 
-        // Cuenta aciertos y muestra feedback visual en el mapa
-        int aciertos = 0;
-        foreach (var zona in dropZones)
-        {
-            if (zona.MostrarFeedback())
-                aciertos++;
-        }
+        int aciertos = mapaColorDrop.CalcularAciertos();
+        int total = mapaColorDrop.GetTotalZonas();
+        int nota = CalcularNota(aciertos, total);
 
-        // Calcula nota del 1 al 10
-        int nota = CalcularNota(aciertos, totalZonas);
-
-        // Muestra el panel de resultado con fade
-        StartCoroutine(MostrarResultado(nota));
+        StartCoroutine(FinalizarExamen(nota));
     }
 
     private int CalcularNota(int aciertos, int total)
     {
-        // Escala de 1 a 10: 0 aciertos = 1, todos correctos = 10
         float porcentaje = (float)aciertos / total;
         int nota = Mathf.RoundToInt(1 + porcentaje * 9);
         return Mathf.Clamp(nota, 1, 10);
     }
 
-    private IEnumerator MostrarResultado(int nota)
+    private IEnumerator FinalizarExamen(int nota)
     {
         yield return new WaitForSeconds(0.5f);
 
@@ -96,6 +96,32 @@ public class ExamenManager : MonoBehaviour
             textoNota.gameObject.SetActive(true);
             textoNota.text = $"{nota} / 10";
         }
-    }
 
+        yield return new WaitForSeconds(3f);
+
+        if (examenCanvas != null)
+            examenCanvas.SetActive(false);
+
+        if (camera2 != null)
+            camera2.gameObject.SetActive(false);
+
+        if (mainCamera != null)
+            mainCamera.gameObject.SetActive(true);
+
+        if (player != null)
+            player.SetActive(true);
+
+        if (firstPlayer != null)
+            firstPlayer.canMove = true;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        if (examenMesa != null)
+        {
+            examenMesa.SetActive(true);
+            if (textoNotaMesa != null)
+                textoNotaMesa.text = $"{nota} / 10";
+        }
+    }
 }
