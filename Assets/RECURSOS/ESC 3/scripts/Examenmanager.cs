@@ -6,14 +6,13 @@ using System.Collections;
 public class ExamenManager : MonoBehaviour
 {
     [Header("Mapa")]
-    public MapaColorDrop mapaColorDrop; // El RawImage mascara con el script
+    public MapaColorDrop mapaColorDrop;
 
     [Header("UI del resultado")]
     public TextMeshProUGUI textoNota;
 
     [Header("Boton para confirmar examen")]
     public Button botonEntregar;
-    public TextMeshProUGUI textoBotonEntregar;
 
     [Header("Camaras")]
     public Camera mainCamera;
@@ -25,7 +24,13 @@ public class ExamenManager : MonoBehaviour
 
     [Header("Examen en mesa (3D)")]
     public GameObject examenMesa;
-    public TextMeshPro textoNotaMesa;
+    public Renderer examenMesaRenderer;
+    public Texture2D[] texturasPorNota;
+
+    [Header("Post examen")]
+    public SubtitleController subtitleController;
+    public DialogueData dialoguePostExamen;
+    public Puerta2AfterDialogue puerta2;    // Script en la puerta del 2do aula
 
     private bool examenEntregado = false;
     private FirstPlayer firstPlayer;
@@ -39,34 +44,25 @@ public class ExamenManager : MonoBehaviour
             examenMesa.SetActive(false);
 
         if (player != null)
+        {
             firstPlayer = player.GetComponent<FirstPlayer>();
+            if (firstPlayer == null)
+                firstPlayer = player.GetComponentInChildren<FirstPlayer>();
+        }
     }
+
 
     public void IntentarEntregar()
     {
         if (examenEntregado) return;
 
-        int zonasCompletas = mapaColorDrop.GetZonasCompletas();
-        int totalZonas = mapaColorDrop.GetTotalZonas();
-
-        if (zonasCompletas < totalZonas)
+        if (mapaColorDrop == null)
         {
-            int faltantes = totalZonas - zonasCompletas;
-            if (textoBotonEntregar != null)
-                textoBotonEntregar.text = $"Faltan {faltantes} provincia{(faltantes > 1 ? "s" : "")}";
-
-            StartCoroutine(RestablecerTextoBoton());
+            Debug.LogError("MapaColorDrop no asignado en ExamenManager");
             return;
         }
 
         EntregarExamen();
-    }
-
-    private IEnumerator RestablecerTextoBoton()
-    {
-        yield return new WaitForSeconds(1.5f);
-        if (textoBotonEntregar != null)
-            textoBotonEntregar.text = "Entregar examen";
     }
 
     private void EntregarExamen()
@@ -89,16 +85,19 @@ public class ExamenManager : MonoBehaviour
 
     private IEnumerator FinalizarExamen(int nota)
     {
+        // 1 — Muestra nota sobre el mapa
         yield return new WaitForSeconds(0.5f);
 
         if (textoNota != null)
         {
             textoNota.gameObject.SetActive(true);
-            textoNota.text = $"{nota} / 10";
+            textoNota.text = $"{nota}/10";
         }
 
+        // 2 — Espera 3 segundos
         yield return new WaitForSeconds(3f);
 
+        // 3 — Cierra examen y restaura camaras
         if (examenCanvas != null)
             examenCanvas.SetActive(false);
 
@@ -108,8 +107,12 @@ public class ExamenManager : MonoBehaviour
         if (mainCamera != null)
             mainCamera.gameObject.SetActive(true);
 
+        // 4 — Reactiva jugador visualmente y habilita movimiento
         if (player != null)
-            player.SetActive(true);
+        {
+            MeshRenderer[] renderers = player.GetComponentsInChildren<MeshRenderer>(true);
+            foreach (var r in renderers) r.enabled = true;
+        }
 
         if (firstPlayer != null)
             firstPlayer.canMove = true;
@@ -117,11 +120,27 @@ public class ExamenManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        // 5 — Activa examen en mesa con textura correcta
         if (examenMesa != null)
         {
             examenMesa.SetActive(true);
-            if (textoNotaMesa != null)
-                textoNotaMesa.text = $"{nota} / 10";
+            int indice = Mathf.Clamp(nota - 1, 0, 9);
+            if (examenMesaRenderer != null && texturasPorNota != null &&
+                texturasPorNota.Length > indice && texturasPorNota[indice] != null)
+                examenMesaRenderer.material.mainTexture = texturasPorNota[indice];
+        }
+
+        // 6 — Inicia dialogo y activa la espera de la puerta
+        if (subtitleController != null && dialoguePostExamen != null)
+        {
+            subtitleController.PlayDialogue(dialoguePostExamen);
+
+            if (puerta2 != null)
+                puerta2.IniciarEspera();
+        }
+        else
+        {
+            Debug.LogError("SubtitleController o DialoguePostExamen no asignado");
         }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SillaExamen1Interaction : MonoBehaviour
+public class SillaBanco2Interaction : MonoBehaviour
 {
     [Header("UI")]
     public GameObject instruccionCanvas;
@@ -12,15 +12,17 @@ public class SillaExamen1Interaction : MonoBehaviour
     public Camera camera2;
     public Animator camera2Animator;
 
-    [Header("Objects")]
-    public GameObject player;
-    public GameObject LUZ1;
+    [Header("Dialogo requerido")]
+    public SubtitleController subtitleController; // Dialogo examen2col debe terminar
 
     [Header("Examen")]
-    public GameObject examenCanvas;
+    public GameObject examenMatCanvas;
 
-    [Header("Dialogo requerido")]
-    public SubtitleController subtitleController;
+    [Header("Luz")]
+    public GameObject luz;
+
+    [Header("Jugador")]
+    public GameObject player;
 
     private FirstPlayer firstPlayer;
     private bool playerInside = false;
@@ -37,8 +39,8 @@ public class SillaExamen1Interaction : MonoBehaviour
         if (camera2 != null)
             camera2.gameObject.SetActive(false);
 
-        if (examenCanvas != null)
-            examenCanvas.SetActive(false);
+        if (examenMatCanvas != null)
+            examenMatCanvas.SetActive(false);
 
         if (player != null)
             firstPlayer = player.GetComponent<FirstPlayer>();
@@ -68,7 +70,7 @@ public class SillaExamen1Interaction : MonoBehaviour
 
         if (used) return;
 
-        // BUG FIX: != null para requerir que este asignado Y que el dialogo haya terminado
+        // E solo aparece si el dialogo examen2col termino
         bool dialogoTerminado = subtitleController != null && !subtitleController.IsDialogueActive;
         eImage.enabled = playerInside && dialogoTerminado;
 
@@ -83,13 +85,15 @@ public class SillaExamen1Interaction : MonoBehaviour
             if (firstPlayer != null)
                 firstPlayer.canMove = false;
 
-            // Solo ocultamos visualmente al player, NO lo desactivamos
-            // para evitar que Awake/OnEnable reinicien el cursor
-            MeshRenderer[] renderers = player.GetComponentsInChildren<MeshRenderer>();
-            foreach (var r in renderers) r.enabled = false;
+            // Oculta el player visualmente sin desactivarlo
+            if (player != null)
+            {
+                MeshRenderer[] renderers = player.GetComponentsInChildren<MeshRenderer>();
+                foreach (var r in renderers) r.enabled = false;
+            }
 
-            if (LUZ1 != null)
-                LUZ1.SetActive(false);
+            if (luz != null)
+                luz.SetActive(false);
 
             if (mainCamera != null)
                 mainCamera.gameObject.SetActive(false);
@@ -127,7 +131,7 @@ public class SillaExamen1Interaction : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        if (examenCanvas != null)
-            examenCanvas.SetActive(true);
+        if (examenMatCanvas != null)
+            examenMatCanvas.SetActive(true);
     }
 }

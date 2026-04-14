@@ -20,6 +20,7 @@ public class SubtitleController : MonoBehaviour
     public float hintFadeSpeed = 2f;
 
     public bool IsDialogueActive => currentDialogue != null;
+    public System.Action OnDialogueEnd; // Evento que se dispara al terminar
 
     private DialogueData currentDialogue;
     private int currentLineIndex;
@@ -196,6 +197,7 @@ public class SubtitleController : MonoBehaviour
         subtitleText.text = "";
         SetHintAlpha(0f);
         currentDialogue = null;
+        OnDialogueEnd?.Invoke();
 
         subtitlePanel.gameObject.SetActive(false);
     }

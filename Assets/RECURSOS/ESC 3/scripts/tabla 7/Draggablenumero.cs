@@ -2,21 +2,19 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DraggableTarjeta : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableNumero : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Identificacion")]
-    public string nombreProvincia;
+    public int valor; // El numero que representa esta tarjeta
 
     [Header("Referencias")]
     public Canvas canvas;
-    public MapaColorDrop mapaColorDrop; // Arrastra el RawImage con MapaColorDrop aqui
 
-    // Estado interno
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector2 posicionOriginal;
     private Transform padreOriginal;
-    public DropZoneProvincia zonaActual = null;
+    [HideInInspector] public DropZoneHueco huecoActual = null;
 
     void Awake()
     {
@@ -38,9 +36,12 @@ public class DraggableTarjeta : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Notifica al mapa que esta tarjeta fue levantada
-        if (mapaColorDrop != null)
-            mapaColorDrop.LiberarTarjeta(this);
+        // Si estaba en un hueco lo libera
+        if (huecoActual != null)
+        {
+            huecoActual.LiberarZona();
+            huecoActual = null;
+        }
 
         transform.SetParent(canvas.transform);
         transform.SetAsLastSibling();
@@ -60,15 +61,8 @@ public class DraggableTarjeta : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         canvasGroup.blocksRaycasts = true;
     }
 
-    public void VolverAOrigen()
+    public void ColocarEnHueco(DropZoneHueco hueco)
     {
-        transform.SetParent(padreOriginal);
-        rectTransform.anchoredPosition = posicionOriginal;
-        zonaActual = null;
-    }
-
-    public void ColocarEnZona(DropZoneProvincia zona)
-    {
-        zonaActual = zona;
+        huecoActual = hueco;
     }
 }

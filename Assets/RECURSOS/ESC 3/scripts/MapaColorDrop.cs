@@ -6,16 +6,13 @@ using System.Collections.Generic;
 public class MapaColorDrop : MonoBehaviour, IDropHandler
 {
     [Header("Textura mascara")]
-    public Texture2D texturaMascara; // La imagen mascara con Read/Write habilitado
+    public Texture2D texturaMascara;
 
     [Header("Provincias y sus colores")]
-    public ProvinciaColor[] provincias; // Configura en el inspector
+    public ProvinciaColor[] provincias;
 
-    // Diccionario provincia → tarjeta colocada
-    private Dictionary<string, DraggableTarjeta> tarjetasColocadas = new Dictionary<string, DraggableTarjeta>();
-
-    private RectTransform rectTransform;
-    private Canvas canvas;
+    [Header("Boton entregar")]
+    public Button botonEntregar; // Desactivado al inicio, se activa cuando se colocan todas
 
     [System.Serializable]
     public class ProvinciaColor
@@ -24,10 +21,22 @@ public class MapaColorDrop : MonoBehaviour, IDropHandler
         public Color color;
     }
 
+    [Header("Sonido")]
+    public AudioSource audioSource;
+    public AudioClip sonidoColocacion; // Sonidito al detectar provincia
+
+    private Dictionary<string, DraggableTarjeta> tarjetasColocadas = new Dictionary<string, DraggableTarjeta>();
+    private RectTransform rectTransform;
+    private Canvas canvas;
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
+
+        // Boton oculto al inicio
+        if (botonEntregar != null)
+            botonEntregar.gameObject.SetActive(false);
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -35,7 +44,6 @@ public class MapaColorDrop : MonoBehaviour, IDropHandler
         DraggableTarjeta tarjeta = eventData.pointerDrag?.GetComponent<DraggableTarjeta>();
         if (tarjeta == null) return;
 
-        // Convierte posicion del mouse a coordenadas UV de la textura
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             rectTransform,
@@ -44,19 +52,16 @@ public class MapaColorDrop : MonoBehaviour, IDropHandler
             out localPoint
         );
 
-        // Normaliza a 0-1
         Rect rect = rectTransform.rect;
         float u = (localPoint.x - rect.x) / rect.width;
         float v = (localPoint.y - rect.y) / rect.height;
 
         if (u < 0 || u > 1 || v < 0 || v > 1) return;
 
-        // Samplea el pixel en esa posicion
         int px = Mathf.FloorToInt(u * texturaMascara.width);
         int py = Mathf.FloorToInt(v * texturaMascara.height);
         Color pixelColor = texturaMascara.GetPixel(px, py);
 
-        // Busca la provincia correspondiente al color
         string provinciaDetectada = DetectarProvincia(pixelColor);
 
         if (provinciaDetectada == null)
@@ -65,40 +70,60 @@ public class MapaColorDrop : MonoBehaviour, IDropHandler
             return;
         }
 
-        // Si la provincia ya tiene tarjeta, no acepta
         if (tarjetasColocadas.ContainsKey(provinciaDetectada))
         {
             Debug.Log($"Provincia {provinciaDetectada} ya ocupada");
             return;
         }
 
-        // Si la tarjeta ya estaba en otra provincia, la libera
-        if (tarjeta.zonaActual != null)
-        {
-            // Busca y elimina la entrada anterior
-            string provinciaAnterior = null;
-            foreach (var kvp in tarjetasColocadas)
-            {
-                if (kvp.Value == tarjeta)
-                {
-                    provinciaAnterior = kvp.Key;
-                    break;
-                }
-            }
-            if (provinciaAnterior != null)
-                tarjetasColocadas.Remove(provinciaAnterior);
-        }
-
-        // Registra la tarjeta en la provincia
+        // Registra la tarjeta
         tarjetasColocadas[provinciaDetectada] = tarjeta;
-        tarjeta.zonaActual = null; // Usamos el diccionario en lugar de zonaActual
+        tarjeta.zonaActual = null;
+
+        // Sonido de colocacion
+        if (audioSource != null && sonidoColocacion != null)
+            audioSource.PlayOneShot(sonidoColocacion);
 
         Debug.Log($"Tarjeta '{tarjeta.nombreProvincia}' colocada en '{provinciaDetectada}'");
+
+        // Verifica si se completaron todas las provincias
+        VerificarCompleto();
+    }
+
+    private void VerificarCompleto()
+    {
+        if (tarjetasColocadas.Count >= provincias.Length)
+        {
+            if (botonEntregar != null)
+                botonEntregar.gameObject.SetActive(true);
+        }
+    }
+
+    public void LiberarTarjeta(DraggableTarjeta tarjeta)
+    {
+        string provinciaAnterior = null;
+        foreach (var kvp in tarjetasColocadas)
+        {
+            if (kvp.Value == tarjeta)
+            {
+                provinciaAnterior = kvp.Key;
+                break;
+            }
+        }
+        if (provinciaAnterior != null)
+        {
+            tarjetasColocadas.Remove(provinciaAnterior);
+            Debug.Log($"Provincia '{provinciaAnterior}' liberada");
+
+            // Oculta el boton si ya no estan todas
+            if (botonEntregar != null)
+                botonEntregar.gameObject.SetActive(false);
+        }
     }
 
     private string DetectarProvincia(Color pixelColor)
     {
-        float threshold = 0.1f; // Tolerancia de color
+        float threshold = 0.1f;
         foreach (var p in provincias)
         {
             if (ColorDistance(pixelColor, p.color) < threshold)
@@ -112,7 +137,6 @@ public class MapaColorDrop : MonoBehaviour, IDropHandler
         return Mathf.Abs(a.r - b.r) + Mathf.Abs(a.g - b.g) + Mathf.Abs(a.b - b.b);
     }
 
-    // Para ExamenManager
     public int GetZonasCompletas()
     {
         return tarjetasColocadas.Count;
