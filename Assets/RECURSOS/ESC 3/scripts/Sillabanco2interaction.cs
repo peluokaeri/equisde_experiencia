@@ -93,7 +93,11 @@ public class SillaBanco2Interaction : MonoBehaviour
             }
 
             if (luz != null)
-                luz.SetActive(false);
+            {
+                Light lightComponent = luz.GetComponent<Light>();
+                if (lightComponent != null)
+                    lightComponent.enabled = false;
+            }
 
             if (mainCamera != null)
                 mainCamera.gameObject.SetActive(false);
