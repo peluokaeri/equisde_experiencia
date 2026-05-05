@@ -12,6 +12,9 @@ public class TriggerNegro : MonoBehaviour
     public CanvasGroup pantallaNegraCanvas; // CanvasGroup con imagen negra para la transicion
     public float velocidadFade = 2f;
 
+    [Header("Secuencia post teleport")]
+    public ControladorPantallas controladorPantallas;
+
     private GameObject player;
     private FirstPlayer firstPlayer;
     private bool atrayendo = false;
@@ -102,6 +105,10 @@ public class TriggerNegro : MonoBehaviour
         // Devuelve el control al jugador
         if (firstPlayer != null)
             firstPlayer.canMove = true;
+
+        // Inicia la secuencia de pantallas
+        if (controladorPantallas != null)
+            controladorPantallas.IniciarSecuencia();
 
         // Se desactiva a si mismo
         gameObject.SetActive(false);
