@@ -4,16 +4,16 @@ using System.Collections;
 public class TriggerNegro : MonoBehaviour
 {
     [Header("Atraccion")]
-    public Transform puntoDestino;      // Punto hacia donde se atrae al jugador
-    public float fuerzaAtraccion = 5f;  // Velocidad de atraccion
+    public Transform puntoDestino;
+    public float fuerzaAtraccion = 5f;
 
     [Header("Teleport")]
-    public Transform puntoTeleport;     // Donde aparece el jugador despues
-    public CanvasGroup pantallaNegraCanvas; // CanvasGroup con imagen negra para la transicion
+    public Transform puntoTeleport;
+    public CanvasGroup pantallaNegraCanvas;
     public float velocidadFade = 2f;
 
     [Header("Secuencia post teleport")]
-    public ControladorPantallas controladorPantallas;
+    public PostDialogoEspacio postDialogoEspacio;
 
     private GameObject player;
     private FirstPlayer firstPlayer;
@@ -22,7 +22,6 @@ public class TriggerNegro : MonoBehaviour
 
     void Start()
     {
-        // Desactivado al inicio, ExamenMatManager lo activa
         gameObject.SetActive(false);
 
         if (pantallaNegraCanvas != null)
@@ -42,7 +41,6 @@ public class TriggerNegro : MonoBehaviour
 
         atrayendo = true;
 
-        // Bloquea el movimiento del jugador para controlarlo nosotros
         if (firstPlayer != null)
             firstPlayer.canMove = false;
     }
@@ -51,7 +49,6 @@ public class TriggerNegro : MonoBehaviour
     {
         if (!atrayendo || player == null || teleportando) return;
 
-        // Mueve al jugador hacia el punto destino
         player.transform.position = Vector3.MoveTowards(
             player.transform.position,
             puntoDestino.position,
@@ -59,7 +56,6 @@ public class TriggerNegro : MonoBehaviour
         );
     }
 
-    // Llamado por el collider del punto destino
     public void IniciarTeleport()
     {
         if (teleportando) return;
@@ -84,13 +80,13 @@ public class TriggerNegro : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        // Teleporta al jugador
+        // Teleporta
         if (player != null && puntoTeleport != null)
             player.transform.position = puntoTeleport.position;
 
         yield return new WaitForSeconds(0.3f);
 
-        // Fade de vuelta a transparente
+        // Fade de vuelta
         if (pantallaNegraCanvas != null)
         {
             while (pantallaNegraCanvas.alpha > 0f)
@@ -102,15 +98,18 @@ public class TriggerNegro : MonoBehaviour
             pantallaNegraCanvas.gameObject.SetActive(false);
         }
 
-        // Devuelve el control al jugador
+        // Devuelve movimiento
         if (firstPlayer != null)
             firstPlayer.canMove = true;
 
-        // Inicia la secuencia de pantallas
-        if (controladorPantallas != null)
-            controladorPantallas.IniciarSecuencia();
+        // 1 — Primero dispara el dialogo
+        if (postDialogoEspacio != null && postDialogoEspacio.subtitleController != null)
+            postDialogoEspacio.subtitleController.PlayDialogue(postDialogoEspacio.GetDialogue());
 
-        // Se desactiva a si mismo
+        // 2 — Luego inicia la espera (igual que ExamenManager con Puerta2)
+        if (postDialogoEspacio != null)
+            postDialogoEspacio.IniciarEspera();
+
         gameObject.SetActive(false);
     }
 }
