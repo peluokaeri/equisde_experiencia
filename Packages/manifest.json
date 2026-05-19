@@ -50,7 +50,9 @@
       "name": "package.openupm.com",
       "url": "https://package.openupm.com",
       "scopes": [
-        "com.luca3317.tmpeffects"
+        "com.luca3317.tmpeffects",
+        "com.ivanmurzak",
+        "extensions.unity"
       ]
     }
   ]
