@@ -1,0 +1,299 @@
+fileFormatVersion: 2
+guid: 6b0be2350b7a26e43b59194181938896
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BRKGlass
+    second: {fileID: 2100000, guid: 59e4d016016a347488aedf367268aa74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ButtonGlass
+    second: {fileID: 2100000, guid: 7460a886a01abb54b805c6e2e8d7a459, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: ab2bd7b339e919844b0772e9fd82d617, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HDLight
+    second: {fileID: 2100000, guid: 0d890238a7cb918429adc00e8bf6ee90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: InstrGlass
+    second: {fileID: 2100000, guid: 2daa9e072c4bc0f4391825df1cd39da1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StWGlass
+    second: {fileID: 2100000, guid: eebdf1fa279bed24eaca8d0fef179bc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRNGlass
+    second: {fileID: 2100000, guid: b05f304e7483b5049b75cd7bc829bcd5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body01
+    second: {fileID: 2100000, guid: 0077db087c6d3de4b80130272286265a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frwheel01
+    second: {fileID: 2100000, guid: 21865b37947a6e247b819930964764e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: instr01
+    second: {fileID: 2100000, guid: 6b96f2d7a81dad64aa44f92636ae9352, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: intr01
+    second: {fileID: 2100000, guid: 580e4b78a37455a4fada09cb34da0955, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lights01
+    second: {fileID: 2100000, guid: f171f528051b5c94a8cec4acaa5bb364, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof01
+    second: {fileID: 2100000, guid: b326bff72572c504a98d96dc5d116526, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rwheel01
+    second: {fileID: 2100000, guid: 4337b57cbf1c3604eb1e50a5cc4606bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stwheel01
+    second: {fileID: 2100000, guid: 5420411f16f075140a41f62b9b519b49, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: body01_albedo
+    second: {fileID: 2800000, guid: 9a344895218fbbb41a2dc1f73bb8dd15, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: body01_metallic
+    second: {fileID: 2800000, guid: 70936e7725c7b5b42ac6a73b174f10b7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: body01_roughness
+    second: {fileID: 2800000, guid: 9c839fb657cc4174394bb3ca17d542e1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: frwheel01_albedo
+    second: {fileID: 2800000, guid: 6600a8888ee00b84087682b14be2dec9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: frwheel01_metallic
+    second: {fileID: 2800000, guid: 7ca18f41ec395d04492bd7e29da9bb96, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: frwheel01_roughness
+    second: {fileID: 2800000, guid: c3ea77af4a9842d4b865e7be25a8fbd3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: instr01_albedo
+    second: {fileID: 2800000, guid: 72f0c9e2a22c42a43a6a4867a7c31eba, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: instr01_metallic
+    second: {fileID: 2800000, guid: 796a85d7e78a09a449a794bc0e4804a2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: instr01_opacity
+    second: {fileID: 2800000, guid: 6d8c3efd202b351408a7820075a298c7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: instr01_roughness
+    second: {fileID: 2800000, guid: 61d777bcb082efa42a0085623ed19a8c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: intr01_metallic
+    second: {fileID: 2800000, guid: 46af78befed8f36469702f4c44255e7d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: intr01_normal
+    second: {fileID: 2800000, guid: b0b96a0d5b51f0a4689034af63946dca, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: intr01_roughness
+    second: {fileID: 2800000, guid: 6fde6a036e81a0046b4dcf29b49fde4e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lights01_albedo
+    second: {fileID: 2800000, guid: 0af375bb62828ca4bbd7dbb19f41b75b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lights01_roughness
+    second: {fileID: 2800000, guid: 31a894ecb38849343b0634c802c44da0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: roof01_albedo
+    second: {fileID: 2800000, guid: 9d2fed02b0192cb4fbe76f43007800e1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: roof01_metallic
+    second: {fileID: 2800000, guid: d6f54847d45d93549806731a213b81c9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: roof01_roughness
+    second: {fileID: 2800000, guid: 32b181e4a712195449032a6d3131af36, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: rwheel01_albedo
+    second: {fileID: 2800000, guid: e7b43a9f98f9a844298b32a1a4e0bc8c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: rwheel01_roughness
+    second: {fileID: 2800000, guid: d1de23d932036c2409e15adb9c2c622e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stwheel01_albedo
+    second: {fileID: 2800000, guid: d30a2a882fbf4c847864ec1a3f4328cf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stwheel01_metallic
+    second: {fileID: 2800000, guid: cfbc37bcb8fce1749b7b2f577b527628, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: stwheel01_roughness
+    second: {fileID: 2800000, guid: 6f758bd50c2b5ee46a8df74b051324b5, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

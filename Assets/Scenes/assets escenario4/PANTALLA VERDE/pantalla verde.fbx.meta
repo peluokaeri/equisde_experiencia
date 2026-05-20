@@ -1,0 +1,229 @@
+fileFormatVersion: 2
+guid: 5c320aa053b800a418dd604abe022c9b
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bottom
+    second: {fileID: 2100000, guid: e733fc4c189470b4a9846ee9de880240, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PANT VERDE CHICA
+    second: {fileID: 2100000, guid: 7a9a69f40a4c1aa4a919c61847b5ac7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PANT VERDE MEDIANA
+    second: {fileID: 2100000, guid: f3e402f4f385a134cbead604d5309b42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PANTALLA VERDE LARGA
+    second: {fileID: 2100000, guid: 38372209f77c1e84991b555f54a13e08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: 05e5694f89032e740a8537b4d6846873, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "l\xE4mple"
+    second: {fileID: 2100000, guid: e5679a63bc3bdf840b58a61b32302a36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: middl
+    second: {fileID: 2100000, guid: 82434f743b49cec49ae5b654b5c3e0f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: top
+    second: {fileID: 2100000, guid: fe186fa2cecb12741bf50ac7240b7427, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bottom_Base_color
+    second: {fileID: 2800000, guid: 4b802adee268efb439657643a0bd05c3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PISO CAMARIN Y PANTALLA VERDE_PANT VERDE CHICA_AlbedoTransparency
+    second: {fileID: 2800000, guid: 89460ba123fdf614f929dfc83f073727, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PISO CAMARIN Y PANTALLA VERDE_PANT VERDE CHICA_MetallicSmoothness
+    second: {fileID: 2800000, guid: 0c5dc395429354d4fbb157919fc67cc3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PISO CAMARIN Y PANTALLA VERDE_PANT VERDE CHICA_Normal
+    second: {fileID: 2800000, guid: 8e27b112260b89941a88e0f047d32475, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PISO CAMARIN Y PANTALLA VERDE_PANT VERDE MEDIANA_AlbedoTransparency
+    second: {fileID: 2800000, guid: fd645e2b8d9e9564bb95f6dace0e0b36, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PISO CAMARIN Y PANTALLA VERDE_PANT VERDE MEDIANA_MetallicSmoothness
+    second: {fileID: 2800000, guid: 28e3b4fbbedd4514c95c319dea0750ce, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PISO CAMARIN Y PANTALLA VERDE_PANT VERDE MEDIANA_Normal
+    second: {fileID: 2800000, guid: 3d609f187e187364d97639b02a8c578c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PISO CAMARIN Y PANTALLA VERDE_PANTALLA VERDE LARGA_AlbedoTransparency
+    second: {fileID: 2800000, guid: 17dbe10593a91e946b8f5e9159db7d59, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PISO CAMARIN Y PANTALLA VERDE_PANTALLA VERDE LARGA_MetallicSmoothness
+    second: {fileID: 2800000, guid: d0f2bced6f3db854284c8d9f9a2bb774, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PISO CAMARIN Y PANTALLA VERDE_PANTALLA VERDE LARGA_Normal
+    second: {fileID: 2800000, guid: 1a4ee053fce76ef4eb91fe783f051afd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: glass_Base_color
+    second: {fileID: 2800000, guid: 8169b6cf4380d4f45bd0707eedcc99c5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: glass_Opacity
+    second: {fileID: 2800000, guid: 23005a2929b3db0449ebc6634035b65c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: "l\xE4mple_Opacity"
+    second: {fileID: 2800000, guid: f1b5819c04ee76d4eaecb19f6e619b3e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: "l\xE4mple_Roughness"
+    second: {fileID: 2800000, guid: fb0800e29f6b4db4a9c067c732430272, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: middl_Metallic
+    second: {fileID: 2800000, guid: 20f37d098a6ad4d44b58a63eda00062e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: top_Base_color
+    second: {fileID: 2800000, guid: ec7593d6952829b409bcffff2a117625, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,259 @@
+fileFormatVersion: 2
+guid: d5dfadc71bbf3e54898ba45c124c1786
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: marco
+    second: {fileID: 2100000, guid: 87cab736480f4134882d2ab599158853, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: marco2
+    second: {fileID: 2100000, guid: d457dcb97917ab643996230000e1177c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pared
+    second: {fileID: 2100000, guid: d22f2766ea6140b46b4900ec8fec74ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pared2
+    second: {fileID: 2100000, guid: 6c60b21ce42c539479289c6553c88f70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ventana
+    second: {fileID: 2100000, guid: 5fd17eb8020c1fd48a05ddb7d5c4eb56, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_marco_BaseColor
+    second: {fileID: 2800000, guid: bc67ca4fcae13ca4581b8c8aa03ed4e8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_marco_Emissive
+    second: {fileID: 2800000, guid: d777831a59b371544ab948213bfc2683, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_marco_Metallic
+    second: {fileID: 2800000, guid: 8afa98bf68631594ba2bdb6fce104533, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_marco_Normal
+    second: {fileID: 2800000, guid: 250babf63751b944bb2d37c7336a4bf7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_marco_Roughness
+    second: {fileID: 2800000, guid: e1e9eaee104fb144db640037afd0805f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_pared_BaseColor
+    second: {fileID: 2800000, guid: 7da738fa7af1f6d4b9427ba58bf35a84, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_pared_Emissive
+    second: {fileID: 2800000, guid: b18f7a1a5a0da4a429a7e937e018edf3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_pared_Metallic
+    second: {fileID: 2800000, guid: f1738655ac53cb84f9b848170474a0f3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_pared_Normal
+    second: {fileID: 2800000, guid: 8e2d5317aecaa5743817efc8eb2a9e20, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_pared_Roughness
+    second: {fileID: 2800000, guid: 0ca2ecdcda3237545a85a26ab40862b6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_marco2_BaseColor
+    second: {fileID: 2800000, guid: 193f7db2ee7af7b4f963c6907c0cf5a6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_marco2_Emissive
+    second: {fileID: 2800000, guid: 3852b7ab67bdae743abb8d5f45ce200e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_marco2_Metallic
+    second: {fileID: 2800000, guid: 748d491714f5df548804b9c878ce6c8f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_marco2_Normal
+    second: {fileID: 2800000, guid: ddc0911e0bb4de44085bf3f1dc866579, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_marco2_Roughness
+    second: {fileID: 2800000, guid: 94cc735452d453645902236c190225a3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_pared2_BaseColor
+    second: {fileID: 2800000, guid: 48ca5e0b381149f4792194ec4b8f706e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_pared2_Emissive
+    second: {fileID: 2800000, guid: e658ff2d933644844b3d55f84eb6df3e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_pared2_Metallic
+    second: {fileID: 2800000, guid: de3d66f66c2bfbb4bb4c5a7e302821be, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_pared2_Normal
+    second: {fileID: 2800000, guid: b46a2dd70a6932046bd97767921305c0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_pared2_Roughness
+    second: {fileID: 2800000, guid: a445f8ad4c89ad74aa4c84d3b5fb58b4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_ventana_BaseColor
+    second: {fileID: 2800000, guid: 556c7ecdec913974982122d23bbcdf99, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_ventana_Emissive
+    second: {fileID: 2800000, guid: 76ef2570aed151a43b2d51dacc1b59e0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_ventana_Metallic
+    second: {fileID: 2800000, guid: e2cbc064af2349746b6f99c5b6ac7471, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_ventana_Normal
+    second: {fileID: 2800000, guid: b04763c56c06844489e34dc31447dc4b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_ventana_ventana_Roughness
+    second: {fileID: 2800000, guid: ec7943842a640684a9889f98cac2aaaf, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
