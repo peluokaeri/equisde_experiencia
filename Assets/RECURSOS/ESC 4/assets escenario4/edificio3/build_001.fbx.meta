@@ -1,0 +1,399 @@
+fileFormatVersion: 2
+guid: 175a25093b91bc34bb45d5770f1452c2
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: build_01
+    second: {fileID: 2100000, guid: 295142c3754d2cd4fb236b3b042338e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: concrete
+    second: {fileID: 2100000, guid: 1134673fc99f14a439a3e312f4752d8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: concrete_02
+    second: {fileID: 2100000, guid: bd783ce27e483b744b5553381d7d88b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: concrete_02.1
+    second: {fileID: 2100000, guid: 341838c91598937408abcee89a1c70f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: concrete_02.2
+    second: {fileID: 2100000, guid: e72231ecf2336764eab912822e9594e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: concrete_02.3
+    second: {fileID: 2100000, guid: 7fc6b92cde339a6449d276ef905ef719, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: concrete_fine
+    second: {fileID: 2100000, guid: d854aa7347172b644862e59bf17f5851, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: concrete_fine.1
+    second: {fileID: 2100000, guid: 57899a00e47c9174c98733796e6644d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01
+    second: {fileID: 2100000, guid: 8131bf7de2ac69c4b84a069bfb2a3cad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.1
+    second: {fileID: 2100000, guid: f4832737d28ffdd4d887acdb3c3100e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.10
+    second: {fileID: 2100000, guid: 224575c19c0a9314eaf6ea0e96f406e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.11
+    second: {fileID: 2100000, guid: 9a4621601838a5749a0e357fc0f4067c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.12
+    second: {fileID: 2100000, guid: cfe81ca0e9ff50c45a5b4c9747874dda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.13
+    second: {fileID: 2100000, guid: 3b2d93d73b80a684ea830b2146ddb035, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.14
+    second: {fileID: 2100000, guid: 9169cc44dc680424099c41000ffa6ee6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.15
+    second: {fileID: 2100000, guid: e920d3024f2d81d43a69870944784bd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.16
+    second: {fileID: 2100000, guid: c5d285940675b83478641389a7c9626d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.17
+    second: {fileID: 2100000, guid: a4e1877abf5c7094ba989d91cb147f46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.18
+    second: {fileID: 2100000, guid: 86c7683a77624e1419cc7f0625d142bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.19
+    second: {fileID: 2100000, guid: 083b63f2bf67deb4789987d0ca30c78a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.2
+    second: {fileID: 2100000, guid: 052d98fa6e055844d8fd58b16a5e72b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.20
+    second: {fileID: 2100000, guid: 7495ae2f50cba1c43889df10e49c402a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.21
+    second: {fileID: 2100000, guid: cf7bf276c72d25f4389ff7cb661de652, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.22
+    second: {fileID: 2100000, guid: 013613d07c916124e9ea9ebc67de23c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.23
+    second: {fileID: 2100000, guid: c153b35f4896dec4a94fcc4b78acbb83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.24
+    second: {fileID: 2100000, guid: c03cd48f601e90945b9a862447818b09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.25
+    second: {fileID: 2100000, guid: 6b01cabeae15c6b40b4010dcc233a354, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.26
+    second: {fileID: 2100000, guid: 7bc0f47bf663a184d8669be098824a5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.27
+    second: {fileID: 2100000, guid: 46e395f5390bc264396e2e8a8440771c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.28
+    second: {fileID: 2100000, guid: 90016921772429e41bdf1b237967e2db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.29
+    second: {fileID: 2100000, guid: 7aca8191f34e48d4f9655d0b66d2ef01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.3
+    second: {fileID: 2100000, guid: ef5ea7f2f1f5c1a40b6d5124fdde7211, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.30
+    second: {fileID: 2100000, guid: 82289126d591c1940936ba288df0b450, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.31
+    second: {fileID: 2100000, guid: da0d003476b59214abe5dc56a3b71307, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.32
+    second: {fileID: 2100000, guid: ff019d3df4f0cc94a92811861a8f0340, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.33
+    second: {fileID: 2100000, guid: c36d8d3ed48615b4d840d8b5569ca12a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.34
+    second: {fileID: 2100000, guid: af241b1c8abf8ea4cb45f662b1a5b246, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.35
+    second: {fileID: 2100000, guid: 44c60aa8a912b4c418ea26a6e3243e36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.36
+    second: {fileID: 2100000, guid: 48990ac8b20798c498e1607c2546cb83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.37
+    second: {fileID: 2100000, guid: 527751f7c6394ca4599c5cbfddc8754e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.38
+    second: {fileID: 2100000, guid: c9463839473d27a4e922cd531d7de5ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.39
+    second: {fileID: 2100000, guid: c1d2d0273f3323f44add32f6c07c35a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.4
+    second: {fileID: 2100000, guid: 92605cb72894333419fb14c9f1c93f29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.40
+    second: {fileID: 2100000, guid: 8c778e7604250924694a13aceeec6cf9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.41
+    second: {fileID: 2100000, guid: 578c3d38621d86c4fb067315ce97ac0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.42
+    second: {fileID: 2100000, guid: 11ceeba059f30354e9618e98f233eed2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.43
+    second: {fileID: 2100000, guid: f2caa87a02818a64da65a3594de33298, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.44
+    second: {fileID: 2100000, guid: a006a09ce17d1d541820cc6062ebbf19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.5
+    second: {fileID: 2100000, guid: 79cfec5289b06364b9bf2cf008d8e5ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.6
+    second: {fileID: 2100000, guid: 314315d0ccd8b2e4198394eadc40de85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.7
+    second: {fileID: 2100000, guid: 50f15d64ce2a8824aa954ad68b7bf766, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.8
+    second: {fileID: 2100000, guid: e708744f5ceb5354cbc296118ca97267, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooftop_01.9
+    second: {fileID: 2100000, guid: e579ddd5c7ae65643a48783cea7c8e72, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: build_01
+    second: {fileID: 2800000, guid: 7381ae06764b75e43adc53938494abd3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: concrete_01
+    second: {fileID: 2800000, guid: 004a33b8b7731de4bbf3b2890361e7e6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: concrete_02
+    second: {fileID: 2800000, guid: 71f39e06ce5b53444a6624902d524767, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: concrete_02_fine
+    second: {fileID: 2800000, guid: b1783ce838ac9db44920f2024a6e2769, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: rooftop_001
+    second: {fileID: 2800000, guid: 18de6fcd90ea42f41bcd61f76dff7352, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
