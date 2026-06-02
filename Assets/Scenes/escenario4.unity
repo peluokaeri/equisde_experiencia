@@ -4574,6 +4574,74 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541149965}
   m_Mesh: {fileID: 6405055333489277325, guid: bfd937932f1a7c94ea7f4fcd7de64050, type: 3}
+--- !u!1001 &1547586829
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 82ab67bf378216f49af8798c8124a5a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -79.99705
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 82ab67bf378216f49af8798c8124a5a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 82ab67bf378216f49af8798c8124a5a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 59.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 82ab67bf378216f49af8798c8124a5a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 82ab67bf378216f49af8798c8124a5a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 82ab67bf378216f49af8798c8124a5a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 82ab67bf378216f49af8798c8124a5a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 82ab67bf378216f49af8798c8124a5a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 82ab67bf378216f49af8798c8124a5a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 82ab67bf378216f49af8798c8124a5a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 82ab67bf378216f49af8798c8124a5a6,
+        type: 3}
+      propertyPath: m_Name
+      value: LAMPARA Y AGUA
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 82ab67bf378216f49af8798c8124a5a6, type: 3}
 --- !u!1 &1596276458
 GameObject:
   m_ObjectHideFlags: 0
@@ -6345,3 +6413,4 @@ SceneRoots:
   - {fileID: 1952234276}
   - {fileID: 114039460}
   - {fileID: 1228995772}
+  - {fileID: 1547586829}
