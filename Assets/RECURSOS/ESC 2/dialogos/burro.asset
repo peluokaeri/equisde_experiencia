@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: burro
   m_EditorClassIdentifier: 
   lines:
-  - 'texto de ejemplo
-
-'
+  - "\xA1Como olvidar a tu noble corcel! "
+  - "Juntos compartieron muchas aventuras \xBFTe acord\xE1s?"
