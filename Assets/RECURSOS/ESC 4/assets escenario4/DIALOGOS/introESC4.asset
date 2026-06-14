@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ba99e53b83e694b92d25281979cd08, type: 3}
+  m_Name: introESC4
+  m_EditorClassIdentifier: 
+  lines:
+  - Esta es una epoca pasada, una epoca digna de recordar
+  - "\xA1Este es un digno set de filmaci\xF3n! "
+  - "\xBFQue te pareci\xF3 el golpe de realidad que viviste?"
+  - En 1936 el actor y director humorista, Charlie Chaplin,
+  - supo dar este mismo golpe de realidad...
+  - con el estreno de "Tiempos Modernos".
+  - "Cr\xEDticas serias al desempleo, la desigualdad, pobreza, entre otras."
+  - 'Antes de avanzar... '
+  - "\xBFQue cosa es la m\xE1s caracter\xEDstica de Chaplin?"
