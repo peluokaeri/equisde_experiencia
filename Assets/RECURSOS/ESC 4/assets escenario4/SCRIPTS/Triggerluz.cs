@@ -62,7 +62,11 @@ public class TriggerLuz : MonoBehaviour
             firstPlayer.canMove = false;
 
         if (playerRb != null)
+        {
             playerRb.useGravity = false;
+            playerRb.isKinematic = true;
+            playerRb.velocity = Vector3.zero;
+        }
     }
 
     void Update()
@@ -76,8 +80,8 @@ public class TriggerLuz : MonoBehaviour
             fuerzaAtraccion * Time.deltaTime
         );
 
-        // Fade a blanco proporcional a la distancia
         float distanciaActual = Vector3.Distance(player.transform.position, puntoDestino.position);
+        Debug.Log($"Distancia al punto: {distanciaActual}");
         float progreso = 1f - Mathf.Clamp01(distanciaActual / distanciaInicial);
 
         if (imagenBlanca != null)
@@ -88,9 +92,10 @@ public class TriggerLuz : MonoBehaviour
         }
 
         // Al llegar al punto cambia de escena
-        if (distanciaActual < 0.1f)
+        if (distanciaActual < 0.5f)
         {
             atrayendo = false;
+            Debug.Log("Llegó al punto, iniciando cambio de escena");
             StartCoroutine(CambiarEscena());
         }
     }
@@ -113,7 +118,11 @@ public class TriggerLuz : MonoBehaviour
 
         yield return new WaitForSeconds(0.3f);
 
+        Debug.Log($"Cargando escena: '{nombreEscena}'");
+
         if (!string.IsNullOrEmpty(nombreEscena))
             SceneManager.LoadScene(nombreEscena);
+        else
+            Debug.LogError("Nombre de escena vacío");
     }
 }
