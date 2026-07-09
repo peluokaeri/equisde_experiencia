@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1024px;
+    height: 1024px;
+    background: #f5f0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Georgia', serif;
+    overflow: hidden;
+  }
+  .paper {
+    width: 900px;
+    height: 960px;
+    background: linear-gradient(
+      135deg,
+      #f7f2e3 0%,
+      #f0ead0 30%,
+      #ede6cc 60%,
+      #e8e0c0 100%
+    );
+    position: relative;
+    padding: 60px 70px;
+    box-shadow: inset 0 0 40px rgba(120,90,40,0.08);
+  }
+
+  /* Bordes decorativos */
+  .border-outer {
+    position: absolute;
+    inset: 24px;
+    border: 2px solid rgba(120,80,30,0.35);
+  }
+  .border-inner {
+    position: absolute;
+    inset: 30px;
+    border: 1px solid rgba(120,80,30,0.18);
+  }
+
+  /* Lineas horizontales decorativas */
+  .line-top {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+    right: 60px;
+    height: 1.5px;
+    background: rgba(120,80,30,0.3);
+  }
+  .line-top-2 {
+    position: absolute;
+    top: 86px;
+    left: 60px;
+    right: 60px;
+    height: 0.5px;
+    background: rgba(120,80,30,0.15);
+  }
+  .line-bottom {
+    position: absolute;
+    bottom: 80px;
+    left: 60px;
+    right: 60px;
+    height: 1.5px;
+    background: rgba(120,80,30,0.3);
+  }
+
+  /* Header */
+  .header {
+    font-style: italic;
+    font-size: 22px;
+    color: rgba(90,55,20,0.75);
+    margin-bottom: 32px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Texto simulado (lineas borrosas) */
+  .text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 10px;
+  }
+  .text-line {
+    height: 10px;
+    background: rgba(60,40,15,0.18);
+    border-radius: 3px;
+  }
+  .text-line.short { width: 65%; }
+  .text-line.medium { width: 82%; }
+  .text-line.full { width: 100%; }
+  .text-line.xshort { width: 45%; }
+
+  /* Firma simulada */
+  .firma {
+    position: absolute;
+    bottom: 110px;
+    right: 90px;
+    font-style: italic;
+    font-size: 18px;
+    color: rgba(90,55,20,0.6);
+  }
+
+  /* Mancha de café sutil */
+  .stain {
+    position: absolute;
+    width: 60px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(140,100,50,0.12) 0%, transparent 70%);
+    bottom: 180px;
+    left: 120px;
+  }
+
+  /* Pliegue simulado */
+  .fold {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 36px 36px 0;
+    border-color: transparent rgba(180,160,110,0.4) transparent transparent;
+  }
+</style>
+</head>
+<body>
+  <div class="paper">
+    <div class="border-outer"></div>
+    <div class="border-inner"></div>
+    <div class="line-top"></div>
+    <div class="line-top-2"></div>
+    <div class="line-bottom"></div>
+    <div class="fold"></div>
+    <div class="stain"></div>
+
+    <div class="header">Querido/a...</div>
+
+    <div class="text-block">
+      <div class="text-line full"></div>
+      <div class="text-line full"></div>
+      <div class="text-line medium"></div>
+      <div class="text-line full"></div>
+      <div class="text-line short"></div>
+      <div class="text-line full"></div>
+      <div class="text-line full"></div>
+      <div class="text-line medium"></div>
+      <div class="text-line full"></div>
+      <div class="text-line xshort"></div>
+      <div class="text-line full"></div>
+      <div class="text-line full"></div>
+      <div class="text-line short"></div>
+      <div class="text-line full"></div>
+      <div class="text-line medium"></div>
+      <div class="text-line full"></div>
+      <div class="text-line xshort"></div>
+      <div class="text-line full"></div>
+      <div class="text-line full"></div>
+      <div class="text-line medium"></div>
+      <div class="text-line short"></div>
+    </div>
+
+    <div class="firma">Con cariño,<br><em>Mamá</em></div>
+  </div>
+</body>
+</html>

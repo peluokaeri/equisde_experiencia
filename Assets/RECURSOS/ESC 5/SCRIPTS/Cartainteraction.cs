@@ -29,7 +29,7 @@ public class CartaInteraction : MonoBehaviour
     private FirstPlayer firstPlayer;
     private bool playerInside = false;
     private bool used = false;
-    private bool cartaAbierta = false;
+    [HideInInspector] public bool cartaAbierta = false;
 
     void Start()
     {
