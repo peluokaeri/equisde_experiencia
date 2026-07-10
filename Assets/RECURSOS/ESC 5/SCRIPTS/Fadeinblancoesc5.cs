@@ -15,8 +15,24 @@ public class FadeInBlancoEsc5 : MonoBehaviour
     public SubtitleController subtitleController;
     public DialogueData dialogueInicio;
 
+    [Header("Jugador")]
+    public GameObject player;
+
+    private FirstPlayer firstPlayer;
+
     void Start()
     {
+        if (player != null)
+        {
+            firstPlayer = player.GetComponent<FirstPlayer>();
+            if (firstPlayer == null)
+                firstPlayer = player.GetComponentInChildren<FirstPlayer>();
+
+            // Bloquea movimiento al inicio
+            if (firstPlayer != null)
+                firstPlayer.canMove = false;
+        }
+
         if (imagenBlanca != null)
         {
             Color c = imagenBlanca.color;
@@ -45,6 +61,16 @@ public class FadeInBlancoEsc5 : MonoBehaviour
         imagenBlanca.color = color;
 
         if (subtitleController != null && dialogueInicio != null)
+        {
             subtitleController.PlayDialogue(dialogueInicio);
+
+            // Espera patron Puerta2AfterDialogue
+            yield return new WaitUntil(() => subtitleController.IsDialogueActive);
+            yield return new WaitUntil(() => !subtitleController.IsDialogueActive);
+        }
+
+        // Desbloquea movimiento al terminar el dialogo
+        if (firstPlayer != null)
+            firstPlayer.canMove = true;
     }
 }

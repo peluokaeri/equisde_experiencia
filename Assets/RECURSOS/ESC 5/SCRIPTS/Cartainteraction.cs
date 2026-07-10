@@ -30,6 +30,8 @@ public class CartaInteraction : MonoBehaviour
     private bool playerInside = false;
     private bool used = false;
     [HideInInspector] public bool cartaAbierta = false;
+    [HideInInspector] public bool fueLeida = false;
+    private Coroutine fadeCoroutine;
 
     void Start()
     {
@@ -120,13 +122,14 @@ public class CartaInteraction : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        StartCoroutine(FadeIn());
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        fadeCoroutine = StartCoroutine(FadeIn());
     }
 
     public void CerrarCarta()
     {
-        Debug.Log("CerrarCarta llamado");
-        StartCoroutine(FadeOut());
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        fadeCoroutine = StartCoroutine(FadeOut());
     }
 
     private IEnumerator FadeIn()
@@ -171,6 +174,7 @@ public class CartaInteraction : MonoBehaviour
         if (scrollRect != null)
             scrollRect.verticalNormalizedPosition = 1f;
 
+        fueLeida = true;
         cartaAbierta = false;
     }
 }
