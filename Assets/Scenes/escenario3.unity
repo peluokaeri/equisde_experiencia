@@ -4313,6 +4313,50 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 2014545461}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &270962401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270962397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b06fb3a4ea0ec247857daaa258aec5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensidad: 0.006
+  velocidad: 1.2
+--- !u!114 &270962402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270962397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6d13bdbeb82744ebd1abddbf61c43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fovBase: 60
+  fovMovimiento: 65
+  velocidadTransicion: 1
+--- !u!114 &270962403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270962397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940a1f546345c2249952a2bd93a354bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensidad: 0.04
+  velocidad: 10
+  intensidadLateral: 0.02
 --- !u!1 &273251763
 GameObject:
   m_ObjectHideFlags: 0
@@ -35730,6 +35774,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 270962399}
+    - targetCorrespondingSourceObject: {fileID: 7817464198838352650, guid: 318eb5c02520d044ba2db275b95681a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 270962403}
+    - targetCorrespondingSourceObject: {fileID: 7817464198838352650, guid: 318eb5c02520d044ba2db275b95681a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 270962402}
+    - targetCorrespondingSourceObject: {fileID: 7817464198838352650, guid: 318eb5c02520d044ba2db275b95681a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 270962401}
   m_SourcePrefab: {fileID: 100100000, guid: 318eb5c02520d044ba2db275b95681a4, type: 3}
 --- !u!114 &2014545462 stripped
 MonoBehaviour:

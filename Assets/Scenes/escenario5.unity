@@ -1936,6 +1936,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 131735944}
+    - targetCorrespondingSourceObject: {fileID: 7817464198838352650, guid: 318eb5c02520d044ba2db275b95681a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 131735948}
+    - targetCorrespondingSourceObject: {fileID: 7817464198838352650, guid: 318eb5c02520d044ba2db275b95681a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 131735947}
+    - targetCorrespondingSourceObject: {fileID: 7817464198838352650, guid: 318eb5c02520d044ba2db275b95681a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 131735952}
   m_SourcePrefab: {fileID: 100100000, guid: 318eb5c02520d044ba2db275b95681a4, type: 3}
 --- !u!1 &131735941 stripped
 GameObject:
@@ -2014,6 +2026,50 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &131735947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131735942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b06fb3a4ea0ec247857daaa258aec5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensidad: 0.008
+  velocidad: 1.2
+--- !u!114 &131735948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131735942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940a1f546345c2249952a2bd93a354bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensidad: 0.04
+  velocidad: 10
+  intensidadLateral: 0.02
+--- !u!114 &131735952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131735942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6d13bdbeb82744ebd1abddbf61c43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fovBase: 60
+  fovMovimiento: 65
+  velocidadTransicion: 1
 --- !u!1001 &140697200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9586,7 +9642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 24.485}
   m_AnchorMin: {x: 0.17500001, y: 0}
   m_AnchorMax: {x: 0.29000002, y: 0.25959304}
-  m_AnchoredPosition: {x: -344, y: -19.416138}
+  m_AnchoredPosition: {x: -344, y: -19.41626}
   m_SizeDelta: {x: -0.5, y: 0.00011062622}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &896748641
@@ -12916,15 +12972,23 @@ MonoBehaviour:
   scrollRect: {fileID: 199271125}
   velocidadFade: 3
   velocidadScroll: 150
-  contenidoCarta: Lorem Ipsum is simply dummy text of the printing and typesetting
-    industry. Lorem Ipsum has been the industry's standard dummy text ever since
-    1966, when designers at Letraset and James Mosley, the librarian at St Bride
-    Printing Library in London, took a 1914 Cicero translation and scrambled it to
-    make dummy text for Letraset's Body Type sheets. It has survived not only many
-    decades, but also the leap into electronic typesetting, remaining essentially
-    unchanged. It was popularised thanks to these sheets and more recently with desktop
-    publishing software like Aldus PageMaker and Microsoft Word including versions
-    of Lorem Ipsum.
+  contenidoCarta: "Para quienes me hicieron estar orgulloso de quien soy:\r\n\r\nCada
+    vez que tengo que hablar sobre ustedes se me dibuja una sonrisa en el rostro.
+    Soy digno hijo suyo y lo digo lleno de orgullo. \r\n\r\nHerede de ustedes tanto
+    lo bueno como lo malo\u2026 Mi forma de hacer varias veces me lastima o me complica
+    la vida, pero tambi\xE9n me hace muy feliz y logr\xF3 hacer todo lo que me propongo.
+    La vida ser\xEDa aburrida si fuera f\xE1cil\u2026 \r\n\r\nLa ansiedad, el vivir
+    estresado, el agregarnos responsabilidades de m\xE1s, son cosas de familia. Hoy
+    puedo decir que estoy muy feliz de ser as\xED. Me dieron todas las herramientas
+    para poder ser un adulto responsable, para conmigo y con el resto. \r\n\r\nGracias
+    por los valores que me inculcaron. Gracias por ense\xF1arme a doler por el otro,
+    a ayudar al d\xE9bil, a ser solidario y nunca olvidarme de donde vengo.\r\n\r\nSoy
+    muy consciente del privilegio que tengo de tenerlos a ustedes a mi lado, desde
+    antes siquiera de haber nacido. Soy muy consciente del privilegio que es mi vida
+    y la cual ustedes se esforzaron en brindarme. Les juro que voy a aprovechar cada
+    segundo. El proceso es complicado, pero me ense\xF1aron a disfrutar de \xE9l
+    y a no rendirme. Todo lo que hago es por y para ustedes, para verlos felices
+    y orgullosos de la persona que criaron. \r\n"
   subtitleController: {fileID: 1573267589}
   player: {fileID: 1465024192}
   cartaAbierta: 0
