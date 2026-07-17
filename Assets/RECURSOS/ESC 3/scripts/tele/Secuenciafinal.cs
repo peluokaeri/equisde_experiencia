@@ -14,11 +14,10 @@ public class SecuenciaFinal : MonoBehaviour
     public SubtitleController subtitleController;
     public DialogueData dialogueFinal;
 
-    [Header("Menu codigo")]
+    [Header("Menu codigo (minimalista)")]
     public CanvasGroup menuCodigoCanvas;    // CanvasGroup con el menu, alpha 0 al inicio
-    public TMP_InputField inputCodigo;      // Campo de texto para escribir
-    public Button botonConfirmar;           // Boton confirmar
-    public TextMeshProUGUI textoError;      // Texto de error si el codigo es incorrecto
+    public TextMeshProUGUI textoInput;      // Donde se muestra lo que escribe el jugador
+    public RectTransform cursor;            // Cursor parpadeante
     public float velocidadFadeMenu = 1.5f;
 
     [Header("Flash blanco y cambio de escena")]
@@ -31,6 +30,8 @@ public class SecuenciaFinal : MonoBehaviour
 
     private const string CODIGO_CORRECTO = "REALIDAD";
     private bool usado = false;
+    private bool inputActivo = false;
+    private string textoActual = "";
 
     void Start()
     {
@@ -41,17 +42,14 @@ public class SecuenciaFinal : MonoBehaviour
             menuCodigoCanvas.interactable = false;
         }
 
-        if (textoError != null)
-            textoError.gameObject.SetActive(false);
+        if (textoInput != null)
+            textoInput.text = "";
 
         if (flashBlanco != null)
         {
             flashBlanco.alpha = 0f;
             flashBlanco.gameObject.SetActive(false);
         }
-
-        if (botonConfirmar != null)
-            botonConfirmar.onClick.AddListener(VerificarCodigo);
     }
 
     // Llamado por PuntoAtraccionFinal
@@ -90,13 +88,12 @@ public class SecuenciaFinal : MonoBehaviour
 
     private IEnumerator MostrarMenuCodigo()
     {
-        // Desbloquea mouse para escribir
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        // Desactiva el componente FirstPlayer para bloquear camara
+        // Bloquea movimiento y camara
         if (firstPlayer != null)
             firstPlayer.enabled = false;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false; // Solo teclado, sin mouse
 
         if (menuCodigoCanvas != null)
         {
@@ -110,49 +107,78 @@ public class SecuenciaFinal : MonoBehaviour
 
             menuCodigoCanvas.alpha = 1f;
             menuCodigoCanvas.interactable = true;
+        }
 
-            // Foca el input automaticamente
-            if (inputCodigo != null)
-                inputCodigo.Select();
+        inputActivo = true;
+        StartCoroutine(ParpadeoCursor());
+    }
+
+    void Update()
+    {
+        if (!inputActivo) return;
+
+        // Captura las letras tipeadas
+        foreach (char c in Input.inputString)
+        {
+            if (c == '\b') // Backspace
+            {
+                if (textoActual.Length > 0)
+                    textoActual = textoActual.Substring(0, textoActual.Length - 1);
+            }
+            else if (c == '\n' || c == '\r') // Enter
+            {
+                VerificarCodigo();
+            }
+            else if (char.IsLetter(c))
+            {
+                textoActual += char.ToUpper(c);
+            }
+        }
+
+        if (textoInput != null)
+            textoInput.text = textoActual;
+
+        // Mueve el cursor al final del texto
+        if (cursor != null && textoInput != null)
+        {
+            float anchoTexto = textoInput.preferredWidth;
+            cursor.anchoredPosition = new Vector2(anchoTexto / 2f + 10f, cursor.anchoredPosition.y);
+        }
+    }
+
+    private IEnumerator ParpadeoCursor()
+    {
+        while (inputActivo)
+        {
+            if (cursor != null)
+                cursor.gameObject.SetActive(!cursor.gameObject.activeSelf);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
     public void VerificarCodigo()
     {
-        if (inputCodigo == null) return;
-
-        string codigo = inputCodigo.text.Trim().ToUpper();
-
-        if (codigo == CODIGO_CORRECTO)
+        if (textoActual.Trim().ToUpper() == CODIGO_CORRECTO)
         {
+            inputActivo = false;
             StartCoroutine(FlashYCambioEscena());
         }
         else
         {
-            if (textoError != null)
-            {
-                textoError.gameObject.SetActive(true);
-                textoError.text = "Código incorrecto";
-                StartCoroutine(OcultarError());
-            }
-
-            inputCodigo.text = "";
-            inputCodigo.Select();
+            // Codigo incorrecto: limpia el texto
+            textoActual = "";
+            if (textoInput != null)
+                textoInput.text = "";
         }
-    }
-
-    private IEnumerator OcultarError()
-    {
-        yield return new WaitForSeconds(2f);
-        if (textoError != null)
-            textoError.gameObject.SetActive(false);
     }
 
     private IEnumerator FlashYCambioEscena()
     {
-        // Deshabilita el menu
         if (menuCodigoCanvas != null)
             menuCodigoCanvas.interactable = false;
+
+        if (cursor != null)
+            cursor.gameObject.SetActive(false);
 
         // Flash blanco
         if (flashBlanco != null)
@@ -170,7 +196,6 @@ public class SecuenciaFinal : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        // Cambia de escena
         if (!string.IsNullOrEmpty(nombreEscena))
             SceneManager.LoadScene(nombreEscena);
     }

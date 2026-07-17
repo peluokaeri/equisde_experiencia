@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: dialogofinakl
   m_EditorClassIdentifier: 
   lines:
-  - "\xBFDe verdad pensabas que el mundo era solamente juegos...\r                                                                                                 "
-  - y colores alegres?
-  - "\xBFQu\xE9 te parece si volvemos al monitor... "
-  - "y retir\xE1s de \xE9l, los diarios enrollados?"
-  - 'Cada uno de estos, tiene una letra resaltada... '
-  - con color rojo que forman una palabra.
-  - Una vez la descubras, escribila en pantalla.
+  - Y vos pensabas...
+  - que todo eran juegos, lindos colores...
+  - y al final todo era un falso escenario.
+  - Anda y lee el diario
+  - Despues, decime que encontras.
