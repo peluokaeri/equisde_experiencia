@@ -8,11 +8,13 @@ public class CordonController : MonoBehaviour
     public Animator cordonAnimator;
     public AudioSource cordonAudio;
 
+    [Header("Nombre del estado de animacion")]
+    public string nombreAnimacion = "Cordonmov";
+
     private bool started = false;
 
     void Start()
     {
-        // Aseguramos que no arranque solo
         if (cordonAnimator != null)
             cordonAnimator.enabled = false;
 
@@ -20,19 +22,24 @@ public class CordonController : MonoBehaviour
             cordonAudio.Stop();
     }
 
+    // Se dispara solo cuando el player entra a ESTE trigger
+    void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+        PlayCordon();
+    }
+
     public void PlayCordon()
     {
         if (started) return;
         started = true;
 
-        // ▶️ Animación
         if (cordonAnimator != null)
         {
             cordonAnimator.enabled = true;
-            cordonAnimator.Play("Cordonmov", 0, 0f);
+            cordonAnimator.Play(nombreAnimacion, 0, 0f);
         }
 
-        // 🔊 Sonido (se mueve con el objeto)
         if (cordonAudio != null)
             cordonAudio.Play();
     }

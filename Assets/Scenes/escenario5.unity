@@ -3091,7 +3091,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -820.04254, w: 5.94}
+  m_margin: {x: 0, y: 0, z: 0.6408539, w: 5.94}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4683,7 +4683,7 @@ Transform:
   m_GameObject: {fileID: 411117277}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.055054367, z: -0, w: 0.99848336}
-  m_LocalPosition: {x: -46.1846, y: 10.438, z: 77.754}
+  m_LocalPosition: {x: -55.04, y: 11.363, z: 70.88}
   m_LocalScale: {x: 5.3621306, y: 6.8693204, z: 3.8376231}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9638,7 +9638,7 @@ Transform:
   m_GameObject: {fileID: 888689121}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.87157136, z: -0, w: 0.49026868}
-  m_LocalPosition: {x: -71.568, y: 7.027, z: 34.774}
+  m_LocalPosition: {x: -67.14, y: 7.027, z: 46.29}
   m_LocalScale: {x: 1.0752907, y: 0.04262425, z: 1.506472}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9763,7 +9763,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896748639}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -14240,7 +14240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.039, y: 0.18027535}
   m_AnchorMax: {x: 0.071, y: 0.224}
-  m_AnchoredPosition: {x: 0, y: 20.371826}
+  m_AnchoredPosition: {x: 16, y: -113}
   m_SizeDelta: {x: 65.132, y: 40.743}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1324979459
@@ -16558,7 +16558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 127.549805, y: -419.24}
+  m_AnchoredPosition: {x: 0, y: -307.56}
   m_SizeDelta: {x: 955, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1495125490
@@ -16568,7 +16568,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495125488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -17125,7 +17125,6 @@ MonoBehaviour:
   subtitlePanel: {fileID: 1495125489}
   clickHintImage: {fileID: 1324137791}
   typingSpeed: 0.04
-  horizontalPadding: 40
   verticalPadding: 20
   idleTimeToShowHint: 2
   hintFadeSpeed: 2
@@ -23786,7 +23785,7 @@ Transform:
   m_GameObject: {fileID: 2021340375}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.46753275, z: -0, w: -0.8839758}
-  m_LocalPosition: {x: -46.058, y: 9.54, z: 77.923}
+  m_LocalPosition: {x: -54.9134, y: 10.465, z: 71.048996}
   m_LocalScale: {x: 1.0752907, y: 0.04262425, z: 1.506472}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24526,15 +24525,19 @@ MonoBehaviour:
   scrollRect: {fileID: 456093605}
   velocidadFade: 3
   velocidadScroll: 150
-  contenidoCarta: Lorem Ipsum is simply dummy text of the printing and typesetting
-    industry. Lorem Ipsum has been the industry's standard dummy text ever since
-    1966, when designers at Letraset and James Mosley, the librarian at St Bride
-    Printing Library in London, took a 1914 Cicero translation and scrambled it to
-    make dummy text for Letraset's Body Type sheets. It has survived not only many
-    decades, but also the leap into electronic typesetting, remaining essentially
-    unchanged. It was popularised thanks to these sheets and more recently with desktop
-    publishing software like Aldus PageMaker and Microsoft Word including versions
-    of Lorem Ipsum.
+  contenidoCarta: "Esta carta realmente va dirigida a tres personas porque, por m\xE1s
+    que exista un lazo biol\xF3gico, no creo que eso sea suficiente para considerar
+    a alguien un padre. Ser padre no es solo estar presente al momento de nacer,
+    sino acompa\xF1ar, cuidar y asumir responsabilidades a lo largo de la vida. Por
+    eso, prefiero dirigirme a quienes s\xED ocuparon un lugar importante en mi historia
+    y estuvieron presentes cuando m\xE1s lo necesit\xE9.\r\nA lo largo de los a\xF1os
+    entend\xED que la familia no siempre es la que nos toca, sino tambi\xE9n la que
+    elegimos y la que nos elige a nosotros. Hay personas que, sin tener ninguna obligaci\xF3n,
+    estuvieron para escucharme, aconsejarme, apoyarme y celebrar mis logros, incluso
+    los m\xE1s peque\xF1os. Esas son las personas que merecen estas palabras.\r\nEsta
+    carta no nace desde el rencor ni busca se\xF1alar culpables. Nace desde el agradecimiento.
+    Porque, al final del d\xEDa, uno termina siendo el resultado de las personas
+    que decidieron quedarse cuando podr\xEDan haberse ido.\r\n"
   subtitleController: {fileID: 1573267589}
   player: {fileID: 1465024192}
   cartaAbierta: 0
@@ -24619,7 +24622,7 @@ Transform:
   m_GameObject: {fileID: 2112441405}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.11644965, z: -0, w: 0.99319667}
-  m_LocalPosition: {x: -71.69, y: 10.438, z: 34.64}
+  m_LocalPosition: {x: -67.262, y: 10.438, z: 46.156002}
   m_LocalScale: {x: 5.4392495, y: 6.8693204, z: 3.1747234}
   m_ConstrainProportionsScale: 0
   m_Children: []

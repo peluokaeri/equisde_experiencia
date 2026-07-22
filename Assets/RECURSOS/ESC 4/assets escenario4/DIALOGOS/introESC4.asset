@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: introESC4
   m_EditorClassIdentifier: 
   lines:
-  - Esta es una epoca pasada, una epoca digna de recordar
-  - "\xA1Este es un digno set de filmaci\xF3n! "
   - "\xBFQue te pareci\xF3 el golpe de realidad que viviste?"
-  - En 1936 el actor y director humorista, Charlie Chaplin,
-  - supo dar este mismo golpe de realidad...
-  - con el estreno de "Tiempos Modernos".
+  - "La transici\xF3n a la adultez puede ser muy abrumadora."
+  - Por momentos sentimos que la vida perdio todos los colores.
+  - Con el estreno de "Tiempos Modernos" en 1936.
+  - Charlie Chaplin supo dar este mismo golpe de realidad.
   - "Cr\xEDticas serias al desempleo, desigualdad, pobreza, etc."
   - 'Antes de avanzar... '
   - "\xBFQue cosa es la m\xE1s caracter\xEDstica de Chaplin?"

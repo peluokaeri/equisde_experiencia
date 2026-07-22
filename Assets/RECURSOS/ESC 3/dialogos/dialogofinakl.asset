@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: dialogofinakl
   m_EditorClassIdentifier: 
   lines:
-  - Y vos pensabas...
-  - que todo eran juegos, lindos colores...
-  - y al final todo era un falso escenario.
-  - Anda y lee el diario
-  - Despues, decime que encontras.
+  - No todo eran juegos y colores bonitos...
+  - "Pareciera como si el mundo que conoc\xEDamos era un falso escenario."
+  - Leamos el diario y veamos las cosas como son.

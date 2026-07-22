@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: NewDialogue
   m_EditorClassIdentifier: 
   lines:
-  - Hola, soy vos. No necesito introducciones.
-  - "Por m\xE1s que ya est\xE9s dentro, aun no diste el primer paso."
-  - "\xBFAlguna vez tuviste ganas de romper un monitor?"
-  - "Es tu momento, golpea y romp\xE9 esa pantalla..."
-  - para descubrir lo que hay adentro.
-  - "No te emociones, lo vamos a usar m\xE1s tarde."
+  - Hola, soy vos. No necesito introducciones, soy la voz dentro tuyo, tu propia
+    consciencia.
+  - Las instrucciones ya fueron dadas y fueron claras. Ya diste el primer paso.

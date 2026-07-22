@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: dialogobigote
   m_EditorClassIdentifier: 
   lines:
-  - "\xA1Perfecto! Parece que tenes su figura muy fresca..."
-  - "\xBFQue te parece si nos vestimos acorde a la ocasi\xF3n?"
-  - Utiliza el accesorio que esta dentro de la caja "mouse".
+  - "\xA1Perfecto! Parece que tenemos su figura muy fresca."
+  - Ahora que recuerdo, deberiamos revisar el mouse...

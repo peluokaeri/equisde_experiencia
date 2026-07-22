@@ -9,10 +9,11 @@ public class ForwardMovementOnLight : MonoBehaviour
     public float speed = 0.5f;    // Velocidad lenta
 
     private bool moveForward = false;
+    private bool pausado = false;
 
     void Update()
     {
-        if (!moveForward || player == null) return;
+        if (!moveForward || pausado || player == null) return;
 
         // Movimiento infinito hacia adelante (eje Z local)
         player.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -24,5 +25,17 @@ public class ForwardMovementOnLight : MonoBehaviour
         {
             moveForward = true; // 🔒 NO se vuelve a apagar nunca
         }
+    }
+
+    // ⏸️ Frena el avance sin perder el estado moveForward
+    public void Pausar()
+    {
+        pausado = true;
+    }
+
+    // ▶️ Reanuda el avance
+    public void Reanudar()
+    {
+        pausado = false;
     }
 }

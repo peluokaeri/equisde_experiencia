@@ -12,7 +12,6 @@ public class SubtitleController : MonoBehaviour
 
     [Header("Typing")]
     public float typingSpeed = 0.03f;
-    public float horizontalPadding = 40f;
     public float verticalPadding = 20f;
 
     [Header("Hint")]
@@ -28,23 +27,44 @@ public class SubtitleController : MonoBehaviour
     private Coroutine hintCoroutine;
     private float idleTimer;
 
-    private float panelStartPosX;
+    private Vector2 panelStartPos;
+
+    // Ancho del canvas (referencia). El panel ocupa todo el ancho
+    // asi el texto centrado por alignment queda SIEMPRE en el medio.
+    private const float PANEL_WIDTH = 1920f;
 
 
-   void Start()
-{
-    subtitleText.text = "";
+    void Start()
+    {
+        subtitleText.text = "";
 
-    // 🔒 FORZAMOS ANCHORS Y PIVOT (CLAVE)
-    subtitlePanel.anchorMin = new Vector2(0f, 0.5f);
-    subtitlePanel.anchorMax = new Vector2(0f, 0.5f);
-    subtitlePanel.pivot = new Vector2(0f, 0.5f);
+        // 🔒 ANCLAJE Y PIVOT CENTRADOS
+        subtitlePanel.anchorMin = new Vector2(0.5f, 0.5f);
+        subtitlePanel.anchorMax = new Vector2(0.5f, 0.5f);
+        subtitlePanel.pivot = new Vector2(0.5f, 0.5f);
 
-    panelStartPosX = subtitlePanel.anchoredPosition.x;
+        // Panel de ancho fijo = ancho del canvas (no se sale nunca)
+        subtitlePanel.sizeDelta = new Vector2(PANEL_WIDTH, subtitlePanel.sizeDelta.y);
 
-    subtitlePanel.gameObject.SetActive(false);
-    SetHintAlpha(0f);
-}
+        // Guardamos la posicion para mantenerla fija
+        panelStartPos = subtitlePanel.anchoredPosition;
+        // Forzamos X centrada (Pos X = 0). La Y la respeta como este en el editor.
+        panelStartPos.x = 0f;
+        subtitlePanel.anchoredPosition = panelStartPos;
+
+        // Texto centrado dentro del panel
+        subtitleText.alignment = TextAlignmentOptions.Center;
+
+        // El texto ocupa TODO el panel (stretch), asi el centro coincide
+        RectTransform textRT = subtitleText.rectTransform;
+        textRT.anchorMin = new Vector2(0f, 0f);
+        textRT.anchorMax = new Vector2(1f, 1f);
+        textRT.offsetMin = Vector2.zero;
+        textRT.offsetMax = Vector2.zero;
+
+        subtitlePanel.gameObject.SetActive(false);
+        SetHintAlpha(0f);
+    }
 
     void Update()
     {
@@ -114,33 +134,14 @@ public class SubtitleController : MonoBehaviour
 
     IEnumerator TypeText(string line)
     {
+        // Escribe letra por letra. Como el panel es de ancho fijo y el texto
+        // esta centrado, cada letra reacomoda el texto al centro solo.
         foreach (char c in line)
         {
             subtitleText.text += c;
-            UpdatePanelSize();
             yield return new WaitForSeconds(typingSpeed);
         }
-
-        UpdatePanelSize();
     }
-
-    void UpdatePanelSize()
-{
-    subtitleText.ForceMeshUpdate();
-    Vector2 size = subtitleText.GetRenderedValues(false);
-
-    subtitlePanel.sizeDelta = new Vector2(
-        size.x + horizontalPadding,
-        size.y + verticalPadding
-    );
-
-    // 🔒 FIJA LA POSICIÓN → NUNCA SE RECENTRA
-    subtitlePanel.anchoredPosition = new Vector2(
-        panelStartPosX,
-        subtitlePanel.anchoredPosition.y
-    );
-}
-
 
     void ResetIdle()
     {
