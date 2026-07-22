@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: quintodialogo
   m_EditorClassIdentifier: 
   lines:
-  - "\xBFQue fue ese ruido?"
-  - Deberiamos averiguarlo...
+  - "\xBFQu\xE9 fue ese ruido?"
+  - "Deber\xEDamos averiguarlo..."

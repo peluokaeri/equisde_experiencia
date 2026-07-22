@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: tercerdialogo
   m_EditorClassIdentifier: 
   lines:
-  - "Esta vez te avivo antes\u2026 "
-  - "en el pr\xF3ximo aula te espera otra prueba, \xA1Suerte!"
+  - 'Esta vez te avivo de antemano... '
+  - "en el pr\xF3ximo aula te espera otra prueba, \xA1suerte!"

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: calledial
   m_EditorClassIdentifier: 
   lines:
-  - "\xBFNotas la ausencia del color verdad?"
+  - "\xBFNot\xE1s la ausencia del color verdad?"
   - Normalmente es algo triste, aburrido, etc.
   - Con frecuencia la vida adulta nos recuerda a "Tiempos Modernos".
   - Los problemas nunca cesaron. No por eso, todo debe ser de colores grises.
   - "Hace 90 a\xF1os entendimos que no, e incluso con las limitaciones de la \xE9poca."
-  - Chaplin nos supo dar un mensaje de esperanza lleno de colores.
+  - Chaplin nos supo dar un mensaje de esperanza lleno de colores
   - "en tiempos donde parec\xEDa imposible comunic\xE1rnoslo."
   - "No siempre se puede estar dentro de un set de filmaci\xF3n."
   - "\xA1Tomate la libertad de recorrerlo!"
-  - Cuando quieras continuar, camina hacia la luz...
+  - "Cuando quieras continuar, camin\xE1 hacia la luz..."

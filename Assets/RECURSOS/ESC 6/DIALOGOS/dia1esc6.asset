@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: dia1esc6
   m_EditorClassIdentifier: 
   lines:
-  - La Noche Estrellada...
+  - '"La noche estrellada"...'
   - esta pintura es hermosa y delicada en cada trazo.
   - "Pero guarda mucho m\xE1s de lo que tus ojos ven de primeras."
   - "\xBFY si la redescubrimos juntos?"

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: dialogointermedio
   m_EditorClassIdentifier: 
   lines:
-  - "\xBFSabes cual es, con certeza, el mayor descubrimiento..."
+  - "\xBFSab\xE9s cu\xE1l es, con certeza, el mayor descubrimiento..."
   - que los humanos podemos hacer?
   - Ver algo tan grande y fascinante como el mundo.
-  - "\xBFTe sentis familiarizado con todos estos sonidos?"
+  - "\xBFTe sent\xEDs familiarizado con todos estos sonidos?"
   - "\xBFNo ten\xE9s una sensaci\xF3n de que, en alg\xFAn momento, estuviste ac\xE1?"

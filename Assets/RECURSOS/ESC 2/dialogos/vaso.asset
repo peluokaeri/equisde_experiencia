@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: vaso
   m_EditorClassIdentifier: 
   lines:
-  - "\xA1Que enchastre hiciste!"
+  - "\xA1Qu\xE9 enchastre hiciste!"
   - Pero como todo enchastre...
   - "Mam\xE1 despu\xE9s se encarga de limpiarlo."

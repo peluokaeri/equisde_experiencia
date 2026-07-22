@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - Tomate un tiempo para escribirle a esa persona...
-  - "en la que est\xE9s pensando despues de leer estas palabras."
+  - "en la que est\xE9s pensando despu\xE9s de leer estas palabras."
   - Este lugar es seguro, te esperamos.
-  - Una vez termines esta conversacion, seguiremos.
+  - "Una vez termines esta conversaci\xF3n, seguiremos."

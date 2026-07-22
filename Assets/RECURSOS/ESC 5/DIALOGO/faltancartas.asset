@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: faltancartas
   m_EditorClassIdentifier: 
   lines:
-  - Aun te quedan cosas por hacer de este lado.
+  - "A\xFAn te quedan cosas por hacer de este lado."

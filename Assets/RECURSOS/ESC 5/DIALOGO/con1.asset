@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - A veces solo necesitan un abrazo...
-  - ' antes de que el tiempo lo vuelva imposible.'
-  - Recorre el lugar y lee todas las cartas.
+  - antes de que el tiempo lo vuelva imposible.
+  - "Recorr\xE9 el lugar y le\xE9 todas las cartas."
