@@ -13,6 +13,10 @@ public class VasoInteraction : MonoBehaviour
     public AudioSource audioSource;   // AudioSource del vaso
     public AudioClip enterSound;      // Sonido al entrar al collider
 
+    [Header("Jugo derramado")]
+    public GameObject planoJugo;      // El plano del jugo en el piso
+    public float retardoJugo = 0.6f;  // Segundos de espera antes de que aparezca
+
     private bool triggered = false;
 
     private void Start()
@@ -20,6 +24,10 @@ public class VasoInteraction : MonoBehaviour
         // 🚫 Evitar que la animación se reproduzca sola
         if (vasoAnimator != null)
             vasoAnimator.enabled = false;
+
+        // 🧃 El jugo arranca oculto
+        if (planoJugo != null)
+            planoJugo.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,7 +54,18 @@ public class VasoInteraction : MonoBehaviour
             vasoAnimator.Play(0, 0, 0f);
         }
 
+        // 🧃 Aparece el jugo derramado (con un pequeño retardo)
+        if (planoJugo != null)
+            StartCoroutine(MostrarJugo());
+
         // 🗣 Reproducir diálogo
         subtitleController.PlayDialogue(vasoDialogue);
+    }
+
+    private IEnumerator MostrarJugo()
+    {
+        // Espera a que el vaso caiga antes de mostrar el derrame
+        yield return new WaitForSeconds(retardoJugo);
+        planoJugo.SetActive(true);
     }
 }

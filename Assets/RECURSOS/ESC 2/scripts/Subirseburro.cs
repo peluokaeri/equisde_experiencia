@@ -155,8 +155,12 @@ public class SubirseBurro : MonoBehaviour
 
         if (playerRb != null)
         {
-            playerRb.useGravity = true;
             playerRb.isKinematic = false;
+            playerRb.useGravity = true;
+
+            // 🔒 Limpia cualquier velocidad acumulada para que no salga disparado
+            playerRb.velocity = Vector3.zero;
+            playerRb.angularVelocity = Vector3.zero;
         }
 
         // Detiene la animacion

@@ -81,7 +81,6 @@ public class AgarrarAvion : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (agarrado) return;
         if (!other.CompareTag("Player")) return;
         playerInside = true;
     }
@@ -95,7 +94,13 @@ public class AgarrarAvion : MonoBehaviour
 
     void Update()
     {
-        if (agarrado) return;
+        if (agarrado)
+        {
+            // Fuerza la E apagada mientras el jugador siga cerca
+            if (eImage != null && playerInside)
+                eImage.enabled = false;
+            return;
+        }
 
         bool dialogoActivo = subtitleController != null && subtitleController.IsDialogueActive;
 

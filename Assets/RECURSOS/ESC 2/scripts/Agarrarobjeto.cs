@@ -75,9 +75,7 @@ public class AgarrarObjeto : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (agarrado) return;
         if (!other.CompareTag("Player")) return;
-        Debug.Log("Player entró al trigger de " + gameObject.name);
         playerInside = true;
     }
 
@@ -90,7 +88,13 @@ public class AgarrarObjeto : MonoBehaviour
 
     void Update()
     {
-        if (agarrado) return;
+        if (agarrado)
+        {
+            // Fuerza la E apagada mientras el jugador siga cerca
+            if (eImage != null && playerInside)
+                eImage.enabled = false;
+            return;
+        }
 
         bool dialogoActivo = subtitleController != null && subtitleController.IsDialogueActive;
 

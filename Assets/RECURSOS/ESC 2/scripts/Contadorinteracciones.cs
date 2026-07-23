@@ -14,15 +14,14 @@ public class ContadorInteracciones : MonoBehaviour
     public SubtitleController subtitleController;
     public DialogueData dialogueFinalEsc2;
 
-    [Header("Menu de palabra")]
+    [Header("Menu de palabra (minimalista)")]
     public CanvasGroup menuPalabraCanvas;
-    public TMP_InputField inputPalabra;
-    public Button botonConfirmar;
-    public TextMeshProUGUI textoError;
+    public TextMeshProUGUI textoInput;      // Donde se muestra lo que escribe
+    public RectTransform cursor;            // Cursor parpadeante
     public float velocidadFade = 1.5f;
 
     [Header("Palabra correcta y escena")]
-    public string palabraCorrecta = "INFANCIA";
+    public string palabraCorrecta = "COLEGIO";
     public string nombreEscena;             // Nombre exacto del escenario 3
 
     [Header("Jugador")]
@@ -30,6 +29,8 @@ public class ContadorInteracciones : MonoBehaviour
 
     private bool dialogoIniciado = false;
     private bool menuMostrado = false;
+    private bool inputActivo = false;
+    private string textoActual = "";
     private int totalObjetosUsados = 0;
     private FirstPlayer firstPlayer;
 
@@ -42,11 +43,8 @@ public class ContadorInteracciones : MonoBehaviour
             menuPalabraCanvas.interactable = false;
         }
 
-        if (textoError != null)
-            textoError.gameObject.SetActive(false);
-
-        if (botonConfirmar != null)
-            botonConfirmar.onClick.AddListener(VerificarPalabra);
+        if (textoInput != null)
+            textoInput.text = "";
 
         if (player != null)
         {
@@ -58,6 +56,13 @@ public class ContadorInteracciones : MonoBehaviour
 
     void Update()
     {
+        // Input del menu de palabra
+        if (inputActivo)
+        {
+            LeerTeclado();
+            return;
+        }
+
         if (dialogoIniciado) return;
 
         int usados = ContarUsados();
@@ -75,6 +80,36 @@ public class ContadorInteracciones : MonoBehaviour
         }
     }
 
+    private void LeerTeclado()
+    {
+        foreach (char c in Input.inputString)
+        {
+            if (c == '\b') // Backspace
+            {
+                if (textoActual.Length > 0)
+                    textoActual = textoActual.Substring(0, textoActual.Length - 1);
+            }
+            else if (c == '\n' || c == '\r') // Enter
+            {
+                VerificarPalabra();
+            }
+            else if (char.IsLetter(c))
+            {
+                textoActual += char.ToUpper(c);
+            }
+        }
+
+        if (textoInput != null)
+            textoInput.text = textoActual;
+
+        // Mueve el cursor al final del texto
+        if (cursor != null && textoInput != null)
+        {
+            float anchoTexto = textoInput.preferredWidth;
+            cursor.anchoredPosition = new Vector2(anchoTexto / 2f + 10f, cursor.anchoredPosition.y);
+        }
+    }
+
     private IEnumerator EsperarUltimoDialogoYArrancar()
     {
         // Espera a que termine el dialogo del ultimo objeto
@@ -89,7 +124,6 @@ public class ContadorInteracciones : MonoBehaviour
         {
             subtitleController.PlayDialogue(dialogueFinalEsc2);
 
-            // Patron Puerta2AfterDialogue
             yield return new WaitUntil(() => subtitleController.IsDialogueActive);
             yield return new WaitUntil(() => !subtitleController.IsDialogueActive);
         }
@@ -108,11 +142,16 @@ public class ContadorInteracciones : MonoBehaviour
         {
             if (script == null) continue;
 
+            // Busca "used", "triggered" o "agarrado" segun el script
             FieldInfo field = script.GetType().GetField("used",
                 BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
 
             if (field == null)
                 field = script.GetType().GetField("triggered",
+                    BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+
+            if (field == null)
+                field = script.GetType().GetField("agarrado",
                     BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
 
             if (field != null && field.FieldType == typeof(bool))
@@ -126,12 +165,12 @@ public class ContadorInteracciones : MonoBehaviour
 
     private IEnumerator MostrarMenu()
     {
-        // Bloquea movimiento y mouse
+        // Bloquea movimiento y camara
         if (firstPlayer != null)
             firstPlayer.enabled = false;
 
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.visible = false; // Solo teclado
 
         if (menuPalabraCanvas != null)
         {
@@ -145,40 +184,38 @@ public class ContadorInteracciones : MonoBehaviour
 
             menuPalabraCanvas.alpha = 1f;
             menuPalabraCanvas.interactable = true;
+        }
 
-            if (inputPalabra != null)
-                inputPalabra.Select();
+        inputActivo = true;
+        StartCoroutine(ParpadeoCursor());
+    }
+
+    private IEnumerator ParpadeoCursor()
+    {
+        while (inputActivo)
+        {
+            if (cursor != null)
+                cursor.gameObject.SetActive(!cursor.gameObject.activeSelf);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
     public void VerificarPalabra()
     {
-        if (inputPalabra == null) return;
-
-        string palabra = inputPalabra.text.Trim().ToUpper();
-
-        if (palabra == palabraCorrecta.ToUpper())
+        if (textoActual.Trim().ToUpper() == palabraCorrecta.ToUpper())
         {
+            inputActivo = false;
+            if (cursor != null)
+                cursor.gameObject.SetActive(false);
+
             SceneManager.LoadScene(nombreEscena);
         }
         else
         {
-            if (textoError != null)
-            {
-                textoError.gameObject.SetActive(true);
-                textoError.text = "Palabra incorrecta";
-                StartCoroutine(OcultarError());
-            }
-
-            inputPalabra.text = "";
-            inputPalabra.Select();
+            // Palabra incorrecta: limpia el texto
+            textoActual = "";
+            if (textoInput != null)
+                textoInput.text = "";
         }
-    }
-
-    private IEnumerator OcultarError()
-    {
-        yield return new WaitForSeconds(2f);
-        if (textoError != null)
-            textoError.gameObject.SetActive(false);
     }
 }
