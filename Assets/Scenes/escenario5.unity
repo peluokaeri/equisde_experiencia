@@ -164,15 +164,18 @@ MonoBehaviour:
   scrollRect: {fileID: 116417897}
   velocidadFade: 3
   velocidadScroll: 150
-  contenidoCarta: Lorem Ipsum is simply dummy text of the printing and typesetting
-    industry. Lorem Ipsum has been the industry's standard dummy text ever since
-    1966, when designers at Letraset and James Mosley, the librarian at St Bride
-    Printing Library in London, took a 1914 Cicero translation and scrambled it to
-    make dummy text for Letraset's Body Type sheets. It has survived not only many
-    decades, but also the leap into electronic typesetting, remaining essentially
-    unchanged. It was popularised thanks to these sheets and more recently with desktop
-    publishing software like Aldus PageMaker and Microsoft Word including versions
-    of Lorem Ipsum.
+  contenidoCarta: "\rEsto ser\xEDa  una carta para mis padres, pero solo mi madre
+    podr\xEDa y ser\xEDa merecedora de leerla. \r\n\r\nHace m\xE1s de 22 a\xF1os
+    comenzaste a criarme, en un panorama de mucho amor, donde despu\xE9s hubieron
+    complicaciones y que junto a tu apoyo me convert\xED en la persona que soy hoy.\r\n\r\nGracias
+    por todo el esfuerzo que hiciste y haces para darnos la mejor vida posible a
+    mi hermano y a mi. Valoro todo lo que haces porque como sabemos el esfuerzo casi
+    siempre fue tuyo y de nadie m\xE1s. \r\n\r\nDesde chico siempre quise demostrarte
+    que con tu apoyo todo era posible, y ac\xE1 estoy, a punto de recibirme, y no
+    hay mayor orgullo de que puedas presenciar los frutos de todo el esfuerzo.\r\n\r\nOjal\xE1
+    pudiera ser una persona m\xE1s demostrativa pero no me sale, yo se que quisieras
+    que te cuente m\xE1s cosas pero como sab\xE9s mis palabras son cortas pero concisas.
+    \r\n"
   subtitleController: {fileID: 1573267589}
   player: {fileID: 1465024192}
   cartaAbierta: 0
@@ -4590,15 +4593,37 @@ MonoBehaviour:
   scrollRect: {fileID: 1135259609}
   velocidadFade: 3
   velocidadScroll: 150
-  contenidoCarta: Lorem Ipsum is simply dummy text of the printing and typesetting
-    industry. Lorem Ipsum has been the industry's standard dummy text ever since
-    1966, when designers at Letraset and James Mosley, the librarian at St Bride
-    Printing Library in London, took a 1914 Cicero translation and scrambled it to
-    make dummy text for Letraset's Body Type sheets. It has survived not only many
-    decades, but also the leap into electronic typesetting, remaining essentially
-    unchanged. It was popularised thanks to these sheets and more recently with desktop
-    publishing software like Aldus PageMaker and Microsoft Word including versions
-    of Lorem Ipsum.
+  contenidoCarta: "No recuerdo un solo momento de mi vida en el que no haya sentido
+    miedo de decepcionarlos.\r\nCada logro que consigo viene acompa\xF1ado por la
+    misma pregunta: \"\xBFEs suficiente?\". Cada paso hacia adelante convive con
+    la sensaci\xF3n de que, en cualquier momento, puedo dejar de estar a la altura
+    de las expectativas que imagin\xE9 que ten\xEDan sobre m\xED. A veces siento
+    que vivo intentando demostrar que valgo la pena, como si todav\xEDa estuviera
+    esperando escuchar que, por fin, hice las cosas bien.\n\r\nHay heridas que uno
+    aprende a esconder. Durante mucho tiempo necesit\xE9 sentir que mi esfuerzo alcanzaba
+    para recibir una palabra de orgullo, un abrazo, una mirada de apoyo. Hubo demasiadas
+    veces en las que sent\xED que ese respaldo nunca lleg\xF3. Aprend\xED a celebrar
+    mis victorias en silencio, a atravesar mis derrotas solo y a convencerme de que
+    no necesitaba la aprobaci\xF3n de nadie m\xE1s que de m\xED mismo. Pero ser\xEDa
+    mentira decir que nunca me hizo falta. Todav\xEDa hay una parte de m\xED que
+    sigue esperando ese gesto.\n\r\nPero, tambi\xE9n hered\xE9 cosas maravillosas:
+    la fortaleza para seguir adelante cuando todo pesa. La capacidad de trabajar
+    por lo que quiero. El respeto por los dem\xE1s, la solidaridad y la sensibilidad
+    para entender el dolor ajeno. Todo eso tambi\xE9n vino de ustedes, y ser\xEDa
+    injusto negarlo. Hay valores que me acompa\xF1an todos los d\xEDas y que forman
+    la mejor parte de la persona que soy.Pero crecer tambi\xE9n significa mirar a
+    quienes nos criaron con ojos adultos y entender que amar a alguien no implica
+    querer parecerse a \xE9l en todo.\n\r\nHoy s\xE9 que hay partes de ustedes que
+    admiro profundamente y que quisiera conservar para siempre. Ojal\xE1 alg\xFAn
+    d\xEDa tenga la fuerza que tuvieron para levantarse despu\xE9s de cada golpe,
+    pero tambi\xE9n s\xE9 que hay otras cosas que no quiero repetir. No quiero que
+    otras personas vivan con miedo de no ser suficientes por mi culpa, no quiero
+    que tengan que adivinar si estoy orgulloso de ellos\u2026\r\nSi alguna vez tengo
+    hijos, espero que nunca tengan que escribir una carta como esta. Siempre voy
+    a agradecerles la vida que me dieron y todo lo que hicieron para que pudiera
+    llegar hasta ac\xE1. Siempre voy a llevar conmigo lo mejor de ustedes a pesar
+    de todo esto.\n\r\nY, justamente porque los amo, tambi\xE9n elijo construir algo
+    distinto.\r\n"
   subtitleController: {fileID: 1573267589}
   player: {fileID: 1465024192}
   cartaAbierta: 0
@@ -22878,15 +22903,21 @@ MonoBehaviour:
   scrollRect: {fileID: 1374441959}
   velocidadFade: 3
   velocidadScroll: 150
-  contenidoCarta: Lorem Ipsum is simply dummy text of the printing and typesetting
-    industry. Lorem Ipsum has been the industry's standard dummy text ever since
-    1966, when designers at Letraset and James Mosley, the librarian at St Bride
-    Printing Library in London, took a 1914 Cicero translation and scrambled it to
-    make dummy text for Letraset's Body Type sheets. It has survived not only many
-    decades, but also the leap into electronic typesetting, remaining essentially
-    unchanged. It was popularised thanks to these sheets and more recently with desktop
-    publishing software like Aldus PageMaker and Microsoft Word including versions
-    of Lorem Ipsum.
+  contenidoCarta: "Siento que soy la persona m\xE1s afortunada del mundo, siento
+    que son los mejores padres que se puede tener. \n\r\nGracias por siempre acompa\xF1arme
+    en todos mis proyectos y guiarme por m\xE1s que me confunda. Saber que por m\xE1s
+    que me frustre tenerlos a ustedes dos a mi lado para darme un abrazo es lo m\xE1s
+    sanador del mundo. \n\r\nLes tengo un cari\xF1o incondicional y aunque me cueste
+    demostrar mis sentimientos ustedes saben que somos la mejor familia que se puede
+    formar. Amo verlos disfrutar su espacio juntos, verlos irse de vacaciones solos,
+    acompa\xF1arlos en las vacaciones juntos, los findes de semana y las charlas
+    super extensas de toda la tarde, tener pasiones compartidas. \n\r\nHacen que
+    mi vida sea m\xE1s feliz y que todos esos momentos en el que me siento triste,
+    pueda respaldarme en ustedes porque siempre tienen las palabras justas para sentirme
+    mejor. \r\nSiempre darme el lugar para expresar mis sentimientos, para demostrar
+    como soy y quien soy. Gracias eternas por todo lo que me dieron y acompa\xF1arme
+    en este proceso de crecimiento que estoy teniendo.\n\r\nLos amo con lo m\xE1s
+    profundo del coraz\xF3n. \r\n"
   subtitleController: {fileID: 1573267589}
   player: {fileID: 1465024192}
   cartaAbierta: 0
