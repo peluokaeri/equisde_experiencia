@@ -16945,6 +16945,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 746594658}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &747648175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 747648176}
+  m_Layer: 0
+  m_Name: asientosalt (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &747648176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747648175}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0331, y: 0.0121, z: 0.0102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1327517857}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &754302286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7417907063142612059, guid: 50e9c460b2035714b9c3be0bbb493fbc,
@@ -25396,6 +25427,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 46536826}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 536a48667a4959c4995d1913cfd8ad55,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 747648176}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 536a48667a4959c4995d1913cfd8ad55,
         type: 3}
@@ -26083,6 +26118,7 @@ MonoBehaviour:
   subtitleController: {fileID: 1984499166}
   dialogueBurro: {fileID: 11400000, guid: 3b03893f75fa5bb40a1a735e978d2964, type: 2}
   puntoAsiento: {fileID: 46536826}
+  puntoBajada: {fileID: 747648176}
   burroAnimator: {fileID: 1327517854}
   audioSource: {fileID: 643597701}
 --- !u!1001 &1403378850

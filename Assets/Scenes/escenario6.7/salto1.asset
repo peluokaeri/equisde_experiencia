@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - "Todo este tiempo pensaste que sub\xEDas para escapar.\n"
-  - "Pero sub\xEDas para encontrarte.\n\n"
-  - "Y ahora que sab\xE9s qui\xE9n sos, el vac\xEDo ya no es un abismo.\n\n"
-  - "Es una invitaci\xF3n.\n\n"
+  - "Pero sub\xEDas para encontrarte.\n"
+  - "Y ahora que sab\xE9s qui\xE9n sos, el vac\xEDo ya no es un abismo.\n"
+  - "Es una invitaci\xF3n.\n"
   - El salto de fe no es hacia lo desconocido. Es hacia vos.
   - "Salt\xE1."

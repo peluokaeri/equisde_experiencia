@@ -38,6 +38,15 @@ public class ExamenMatManager : MonoBehaviour
 
     void Start()
     {
+        // 🔒 Apaga el Animator de la puerta al inicio para que no se abra sola.
+        // Se reactiva recien en el Apagon.
+        if (puertaAnimator != null)
+        {
+            puertaAnimator.enabled = false;
+            puertaAnimator.Rebind();
+            puertaAnimator.enabled = false;
+        }
+
         // Asegura que el sonido lugubre este desactivado al inicio
         if (audioLugubre != null)
         {
@@ -51,6 +60,14 @@ public class ExamenMatManager : MonoBehaviour
             if (firstPlayer == null)
                 firstPlayer = player.GetComponentInChildren<FirstPlayer>();
         }
+    }
+
+    void Update()
+    {
+        // Mientras no haya pasado el apagon, mantiene la puerta cerrada
+        // (Animator forzadamente apagado) por si algo lo reactiva.
+        if (!apagonActivado && puertaAnimator != null && puertaAnimator.enabled)
+            puertaAnimator.enabled = false;
     }
 
     public void NumeroColocado(DropZoneHueco hueco)
@@ -115,9 +132,15 @@ public class ExamenMatManager : MonoBehaviour
         if (sistemaParticulas != null)
             sistemaParticulas.Play();
 
-        // Habilita el TriggerNegro
+        // Habilita el TriggerNegro (sin desactivar el GameObject)
         if (triggerNegro != null)
-            triggerNegro.SetActive(true);
+        {
+            TriggerNegro tn = triggerNegro.GetComponent<TriggerNegro>();
+            if (tn != null)
+                tn.Habilitar();
+            else
+                triggerNegro.SetActive(true); // fallback por compatibilidad
+        }
 
         // Sonido apagon
         if (audioApagon != null)
@@ -131,7 +154,7 @@ public class ExamenMatManager : MonoBehaviour
         if (audioLugubre != null)
             audioLugubre.Play();
 
-        // Animacion de la puerta
+        // Animacion de la puerta (ahora si, en el momento correcto)
         if (puertaAnimator != null)
         {
             puertaAnimator.enabled = true;

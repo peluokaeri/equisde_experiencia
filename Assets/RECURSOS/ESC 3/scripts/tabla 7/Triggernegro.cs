@@ -15,14 +15,23 @@ public class TriggerNegro : MonoBehaviour
     [Header("Secuencia post teleport")]
     public PostDialogoEspacio postDialogoEspacio;
 
+    [Header("Activacion")]
+    // Arranca "apagado" (no reacciona) hasta que el apagon lo habilite.
+    public bool habilitado = false;
+
     private GameObject player;
     private FirstPlayer firstPlayer;
     private bool atrayendo = false;
     private bool teleportando = false;
+    private Collider miCollider;
 
     void Start()
     {
-        gameObject.SetActive(false);
+        // Ya NO se desactiva el GameObject (eso rompia las corrutinas).
+        // En su lugar, se desactiva el collider y se usa la bandera 'habilitado'.
+        miCollider = GetComponent<Collider>();
+        if (miCollider != null)
+            miCollider.enabled = false;
 
         if (pantallaNegraCanvas != null)
         {
@@ -31,8 +40,17 @@ public class TriggerNegro : MonoBehaviour
         }
     }
 
+    // Llamado por ExamenMatManager en el apagon para activar el trigger
+    public void Habilitar()
+    {
+        habilitado = true;
+        if (miCollider != null)
+            miCollider.enabled = true;
+    }
+
     void OnTriggerEnter(Collider other)
     {
+        if (!habilitado) return;       // Ignora si todavia no esta habilitado
         if (!other.CompareTag("Player")) return;
         if (atrayendo) return;
 
@@ -59,6 +77,8 @@ public class TriggerNegro : MonoBehaviour
     public void IniciarTeleport()
     {
         if (teleportando) return;
+        // Solo arranca la corrutina si el objeto esta activo
+        if (!gameObject.activeInHierarchy) return;
         teleportando = true;
         StartCoroutine(Teleport());
     }
@@ -106,10 +126,15 @@ public class TriggerNegro : MonoBehaviour
         if (postDialogoEspacio != null && postDialogoEspacio.subtitleController != null)
             postDialogoEspacio.subtitleController.PlayDialogue(postDialogoEspacio.GetDialogue());
 
-        // 2 — Luego inicia la espera (igual que ExamenManager con Puerta2)
+        // 2 — Luego inicia la espera
         if (postDialogoEspacio != null)
             postDialogoEspacio.IniciarEspera();
 
-        gameObject.SetActive(false);
+        // Se "apaga" desactivando el collider y la bandera (NO el GameObject,
+        // asi las corrutinas y referencias siguen funcionando)
+        habilitado = false;
+        atrayendo = false;
+        if (miCollider != null)
+            miCollider.enabled = false;
     }
 }

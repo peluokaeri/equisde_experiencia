@@ -12,9 +12,10 @@ public class SubirseBurro : MonoBehaviour
     public DialogueData dialogueBurro;
 
     [Header("Posicion")]
-    public Transform puntoAsiento;          // Donde se sienta el jugador (hijo de la hamaca para que siga la animacion)
+    public Transform puntoAsiento;      // Donde se sienta el jugador
+    public Transform puntoBajada;       // Donde aparece al bajarse (lugar despejado)
 
-    [Header("Animacion de la hamaca")]
+    [Header("Animacion")]
     public Animator burroAnimator;
 
     [Header("Sonido")]
@@ -27,7 +28,7 @@ public class SubirseBurro : MonoBehaviour
     private GameObject player;
     private FirstPlayer firstPlayer;
     private Rigidbody playerRb;
-    private Vector3 offsetAsiento;
+    private Collider playerCollider;
 
     void Start()
     {
@@ -49,6 +50,7 @@ public class SubirseBurro : MonoBehaviour
         player = other.gameObject;
         firstPlayer = player.GetComponent<FirstPlayer>();
         playerRb = player.GetComponent<Rigidbody>();
+        playerCollider = player.GetComponent<Collider>();
         playerInside = true;
     }
 
@@ -61,7 +63,7 @@ public class SubirseBurro : MonoBehaviour
 
     void Update()
     {
-        // Mientras esta en la hamaca, sigue la posicion del asiento
+        // Mientras esta montado, sigue la posicion del asiento
         if (enHamaca)
         {
             if (eImage != null)
@@ -72,7 +74,6 @@ public class SubirseBurro : MonoBehaviour
             return;
         }
 
-        // Ya se uso: fuerza E apagada y no permite reinteractuar
         if (used)
         {
             if (eImage != null && playerInside)
@@ -99,7 +100,6 @@ public class SubirseBurro : MonoBehaviour
         if (eImage != null)
             eImage.enabled = false;
 
-        // Bloquea movimiento normal
         if (firstPlayer != null)
             firstPlayer.canMove = false;
 
@@ -109,11 +109,13 @@ public class SubirseBurro : MonoBehaviour
             playerRb.isKinematic = true;
         }
 
-        // Sienta al jugador en el asiento (sin cambiar parent)
+        // Desactiva el collider mientras monta
+        if (playerCollider != null)
+            playerCollider.enabled = false;
+
         if (puntoAsiento != null)
             player.transform.position = puntoAsiento.position;
 
-        // Activa la animacion de la hamaca
         if (burroAnimator != null)
         {
             burroAnimator.enabled = true;
@@ -123,21 +125,15 @@ public class SubirseBurro : MonoBehaviour
         if (audioSource != null)
             audioSource.Play();
 
-        // Dialogo
         if (subtitleController != null && dialogueBurro != null)
             subtitleController.PlayDialogue(dialogueBurro);
     }
 
     private System.Collections.IEnumerator EsperarFinAnimacion()
     {
-        // Espera un frame para que el Animator entre al estado
         yield return null;
-
-        // Duracion del clip actual
         float duracion = burroAnimator.GetCurrentAnimatorStateInfo(0).length;
-
         yield return new WaitForSeconds(duracion);
-
         Bajar();
     }
 
@@ -149,19 +145,38 @@ public class SubirseBurro : MonoBehaviour
         if (eImage != null)
             eImage.enabled = false;
 
-        // Restaura movimiento
-        if (firstPlayer != null)
-            firstPlayer.canMove = true;
+        // 1 Mueve al player a posicion segura ANTES de activar colisiones
+        if (player != null)
+        {
+            if (puntoBajada != null)
+                player.transform.position = puntoBajada.position;
+            else
+                player.transform.position += Vector3.up * 0.2f - transform.forward * 1f;
+        }
 
+        // 2 Limpia velocidad antes de reactivar
+        if (playerRb != null)
+        {
+            playerRb.velocity = Vector3.zero;
+            playerRb.angularVelocity = Vector3.zero;
+        }
+
+        // 3 Reactiva el collider (ya en posicion segura)
+        if (playerCollider != null)
+            playerCollider.enabled = true;
+
+        // 4 Reactiva la fisica y vuelve a limpiar velocidad
         if (playerRb != null)
         {
             playerRb.isKinematic = false;
             playerRb.useGravity = true;
-
-            // 🔒 Limpia cualquier velocidad acumulada para que no salga disparado
             playerRb.velocity = Vector3.zero;
             playerRb.angularVelocity = Vector3.zero;
         }
+
+        // Restaura movimiento
+        if (firstPlayer != null)
+            firstPlayer.canMove = true;
 
         // Detiene la animacion
         if (burroAnimator != null)
@@ -169,6 +184,5 @@ public class SubirseBurro : MonoBehaviour
 
         if (audioSource != null)
             audioSource.Stop();
-
     }
 }
