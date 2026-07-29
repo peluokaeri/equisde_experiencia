@@ -11,49 +11,77 @@ public class SkyboxNegroZona : MonoBehaviour
     [Header("Global Volume")]
     public GameObject globalVolume;     // El Global Volume a desactivar en la zona
 
-    // Guarda los valores originales para restaurar
+    // Guarda los valores originales (limpios) de la escena
     private Material skyboxOriginal;
     private Color ambienteOriginal;
     private UnityEngine.Rendering.AmbientMode modoAmbienteOriginal;
+    private float intensidadOriginal;
     private bool fogOriginal;
+
+    private bool enZonaNegra = false;
+
+    void Awake()
+    {
+        // Guarda el estado LIMPIO de la escena al arrancar (antes de tocar nada)
+        GuardarOriginal();
+    }
+
+    void GuardarOriginal()
+    {
+        skyboxOriginal = RenderSettings.skybox;
+        ambienteOriginal = RenderSettings.ambientLight;
+        modoAmbienteOriginal = RenderSettings.ambientMode;
+        intensidadOriginal = RenderSettings.ambientIntensity;
+        fogOriginal = RenderSettings.fog;
+    }
+
+    void RestaurarOriginal()
+    {
+        RenderSettings.skybox = skyboxOriginal;
+        RenderSettings.ambientMode = modoAmbienteOriginal;
+        RenderSettings.ambientLight = ambienteOriginal;
+        RenderSettings.ambientIntensity = intensidadOriginal;
+        RenderSettings.fog = fogOriginal;
+
+        if (globalVolume != null)
+            globalVolume.SetActive(true);
+    }
 
     void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
 
-        // Guarda estado actual
-        skyboxOriginal = RenderSettings.skybox;
-        ambienteOriginal = RenderSettings.ambientLight;
-        modoAmbienteOriginal = RenderSettings.ambientMode;
-        fogOriginal = RenderSettings.fog;
+        enZonaNegra = true;
 
         // Aplica negro puro
-        RenderSettings.skybox = skyboxNegro; // Si es null, el fondo usa el color de camara
+        RenderSettings.skybox = skyboxNegro;
         RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
         RenderSettings.ambientLight = colorAmbienteNegro;
         RenderSettings.fog = false;
 
-        // Desactiva el global volume
         if (globalVolume != null)
             globalVolume.SetActive(false);
-
-        DynamicGI.UpdateEnvironment();
     }
 
     void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) return;
 
-        // Restaura estado original
-        RenderSettings.skybox = skyboxOriginal;
-        RenderSettings.ambientMode = modoAmbienteOriginal;
-        RenderSettings.ambientLight = ambienteOriginal;
-        RenderSettings.fog = fogOriginal;
+        enZonaNegra = false;
+        RestaurarOriginal();
+    }
 
-        // Reactiva el global volume
-        if (globalVolume != null)
-            globalVolume.SetActive(true);
+    // 🔑 CLAVE: al deshabilitar o destruir (ej: cambio de escena),
+    // restaura SIEMPRE para no arrastrar el negro a la escena siguiente.
+    void OnDisable()
+    {
+        if (enZonaNegra)
+            RestaurarOriginal();
+    }
 
-        DynamicGI.UpdateEnvironment();
+    void OnDestroy()
+    {
+        if (enZonaNegra)
+            RestaurarOriginal();
     }
 }

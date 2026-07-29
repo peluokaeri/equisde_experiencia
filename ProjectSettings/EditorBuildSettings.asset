@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/escenario6.unity
     guid: 639321bbdf8842741bd2237e5227bb67
+  - enabled: 1
+    path: Assets/Scenes/escenario6.5.unity
+    guid: 2d9fc9afe17a7ad4b866cb9bd83cc30f
+  - enabled: 1
+    path: Assets/Scenes/escenario7.unity
+    guid: cfdf55221e521a443a5cf1c4d0370ffa
   m_configObjects: {}
