@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 1e725151d8c984840ac64ee4f519d2a4
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Aralia_Leaf
+    second: {fileID: 2100000, guid: f04f41cca27620449a9359df999fad31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bud03
+    second: {fileID: 2100000, guid: 24a8a3a2ab797ae42acb591699fc7c8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CatTails01
+    second: {fileID: 2100000, guid: c15b241964b6de64e821e6c9d09d5a12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flower02
+    second: {fileID: 2100000, guid: 80fd4c5b5a5e2734ea423855626f1b91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GrassBlade
+    second: {fileID: 2100000, guid: cf2a6516cce35aa4cab56dfb06500baf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IronBand
+    second: {fileID: 2100000, guid: 2eb03dccbed917d4c9e0f19701e8dc1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaf02
+    second: {fileID: 2100000, guid: 1d4f5572e0d861c4aabfb00acea40e00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves07
+    second: {fileID: 2100000, guid: cbc645faae17f1147b88e2056c984375, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves10
+    second: {fileID: 2100000, guid: 84a29b8c7c7ef1d408e00dec77e6e8c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Petals03
+    second: {fileID: 2100000, guid: 8ea95bdf82b8a354eb0d6829ef26521b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plant02
+    second: {fileID: 2100000, guid: 9be9a81c3756d814087cd2ce3f7b14b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plant07Stem
+    second: {fileID: 2100000, guid: bf0e123665a656a4ab2a5022b9cb77d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plant09Stem
+    second: {fileID: 2100000, guid: 59f303496c228164f85696924559ad27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plant10Stem
+    second: {fileID: 2100000, guid: e1f6d6be594e0c849a56e39ba71b2bfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot01
+    second: {fileID: 2100000, guid: 2e35f76413380504bac1d7c4b1572b49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot02
+    second: {fileID: 2100000, guid: ba6b5c20837b828489d7a77245360249, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot02Upper
+    second: {fileID: 2100000, guid: d073f375ba959ae47802969bb370595e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot03
+    second: {fileID: 2100000, guid: daf990f787e41dd4f8ef5a047088b161, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot03Top
+    second: {fileID: 2100000, guid: 77c05cc178738094ab69c72b0ce79867, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot04
+    second: {fileID: 2100000, guid: 70da915d0a15f234da4263d14ddfd92e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot05
+    second: {fileID: 2100000, guid: f2049320b8f3c3540877c246f25de094, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot06
+    second: {fileID: 2100000, guid: 24cb12630daf5c74099d73b67057f3db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot06Base
+    second: {fileID: 2100000, guid: 98293a5378abf8940ba4b78d1e6bc7a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot06Bottom
+    second: {fileID: 2100000, guid: f36dcb597d3180b4382c357aea04ee3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot06Ring
+    second: {fileID: 2100000, guid: e63289de972b2d241965ad0fca8bfcc2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot06Top
+    second: {fileID: 2100000, guid: 8209ee3a8ead22d4cbecaa3dd3e6d760, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot07
+    second: {fileID: 2100000, guid: bae53c27c35876f40911b3c9df70c015, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot07Top
+    second: {fileID: 2100000, guid: b930b022852ed8f429d926a5dd864c7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot08
+    second: {fileID: 2100000, guid: 4b019f01500575943b28d9cf1bda1835, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot08Bottom
+    second: {fileID: 2100000, guid: db2adfa8c63cece47821e2e8333ee401, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot08Top
+    second: {fileID: 2100000, guid: a7c68e9157e91bb489ae496d566e3f9a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot09
+    second: {fileID: 2100000, guid: 85c4b1a5d90e93d498d8fb03a41080cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot09Top
+    second: {fileID: 2100000, guid: 960d3159fa256534c8b80cda31bf6bef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot10
+    second: {fileID: 2100000, guid: 2701f9cc4c90cbf4ebd307ee6efbf59b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot10Base
+    second: {fileID: 2100000, guid: 2e3a82846a8f8ef4aa41acfcb1fa3ee3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pot10Top
+    second: {fileID: 2100000, guid: 7d588eab1c3d4fc4c888e7bd3794802a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PotDirt
+    second: {fileID: 2100000, guid: b07eb5980af8c364382af2100b32b1ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rumex_1
+    second: {fileID: 2100000, guid: 95c8e1ae0b4cabe4fbf03f599eb11716, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Palm_Leaf
+    second: {fileID: 2100000, guid: c48cd86421577bb46aa9bafd7083c331, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stalks01
+    second: {fileID: 2100000, guid: 53663ca520e85e24a97512340a749122, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stems02
+    second: {fileID: 2100000, guid: 2e34a4c1b607d8149a873ffd756ea8e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stems03
+    second: {fileID: 2100000, guid: 352e00efd8fb2a74683fff66f3d777e0, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
