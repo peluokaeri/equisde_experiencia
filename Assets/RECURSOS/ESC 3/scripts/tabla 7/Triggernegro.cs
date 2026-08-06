@@ -25,11 +25,20 @@ public class TriggerNegro : MonoBehaviour
     private bool teleportando = false;
     private Collider miCollider;
 
+    void Awake()
+    {
+        // Desactiva el collider lo antes posible (antes de cualquier trigger)
+        miCollider = GetComponent<Collider>();
+        if (miCollider != null)
+            miCollider.enabled = false;
+        habilitado = false;
+    }
+
     void Start()
     {
-        // Ya NO se desactiva el GameObject (eso rompia las corrutinas).
-        // En su lugar, se desactiva el collider y se usa la bandera 'habilitado'.
-        miCollider = GetComponent<Collider>();
+        // Refuerza: collider apagado y bandera en false
+        if (miCollider == null)
+            miCollider = GetComponent<Collider>();
         if (miCollider != null)
             miCollider.enabled = false;
 
@@ -43,6 +52,7 @@ public class TriggerNegro : MonoBehaviour
     // Llamado por ExamenMatManager en el apagon para activar el trigger
     public void Habilitar()
     {
+        Debug.Log("TriggerNegro HABILITADO");
         habilitado = true;
         if (miCollider != null)
             miCollider.enabled = true;
@@ -53,6 +63,8 @@ public class TriggerNegro : MonoBehaviour
         if (!habilitado) return;       // Ignora si todavia no esta habilitado
         if (!other.CompareTag("Player")) return;
         if (atrayendo) return;
+
+        Debug.Log("TriggerNegro: player entró (habilitado=" + habilitado + ")");
 
         player = other.gameObject;
         firstPlayer = player.GetComponent<FirstPlayer>();
@@ -65,6 +77,9 @@ public class TriggerNegro : MonoBehaviour
 
     void Update()
     {
+        // Si no esta habilitado, no hace absolutamente nada
+        if (!habilitado) return;
+
         if (!atrayendo || player == null || teleportando) return;
 
         player.transform.position = Vector3.MoveTowards(
@@ -76,9 +91,14 @@ public class TriggerNegro : MonoBehaviour
 
     public void IniciarTeleport()
     {
+        if (!habilitado)
+        {
+            Debug.LogWarning("IniciarTeleport llamado pero NO habilitado - se ignora. Quien llama: " + System.Environment.StackTrace);
+            return;
+        }
         if (teleportando) return;
-        // Solo arranca la corrutina si el objeto esta activo
         if (!gameObject.activeInHierarchy) return;
+        Debug.Log("IniciarTeleport EJECUTADO (habilitado=true)");
         teleportando = true;
         StartCoroutine(Teleport());
     }
